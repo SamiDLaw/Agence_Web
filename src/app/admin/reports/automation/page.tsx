@@ -23,7 +23,11 @@ export default function AutomationPage() {
         start: '',
         end: ''
       },
-      metrics: {}
+      metrics: {
+        projects: [],
+        team: [],
+        financial: []
+      }
     }
   });
 
@@ -74,7 +78,11 @@ export default function AutomationPage() {
             start: '',
             end: ''
           },
-          metrics: {}
+          metrics: {
+            projects: [],
+            team: [],
+            financial: []
+          }
         }
       });
     } catch (error) {
