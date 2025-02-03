@@ -32,16 +32,38 @@ interface DashboardData {
   };
 }
 
+interface Order {
+  id: string;
+  customerName: string;
+  service: string;
+  amount: number;
+  status: 'pending' | 'completed' | 'cancelled';
+}
+
+interface Message {
+  id: string;
+  sender: string;
+  preview: string;
+  timestamp: string;
+}
+
+interface Comment {
+  id: string;
+  author: string;
+  content: string;
+  timestamp: string;
+}
+
 export default function AdminDashboard() {
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState<Order[]>([]);
   const [stats, setStats] = useState({
     dailyVisitors: 0,
     conversionRate: 0,
     averageOrderValue: 0,
     totalRevenue: 0
   });
-  const [recentComments, setRecentComments] = useState([]);
-  const [unreadMessages, setUnreadMessages] = useState([]);
+  const [recentComments, setRecentComments] = useState<Comment[]>([]);
+  const [unreadMessages, setUnreadMessages] = useState<Message[]>([]);
   const [showVisitsModal, setShowVisitsModal] = useState(false);
   const [visitsDetails, setVisitsDetails] = useState({
     totalVisits: 0,
@@ -244,7 +266,7 @@ export default function AdminDashboard() {
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <svg className="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
                   </div>
                   <div className="ml-5 w-0 flex-1">
