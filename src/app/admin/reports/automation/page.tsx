@@ -10,11 +10,7 @@ interface Report {
   type: 'project' | 'financial' | 'performance';
   title: string;
   createdAt: string;
-  createdBy: {
-    id: string;
-    name: string;
-    role: string;
-  };
+  createdBy: string;
   lastUpdated: string;
   dateRange: {
     start: string;
@@ -45,11 +41,7 @@ export default function AutomationPage() {
     reportTemplate: {
       type: 'project',
       title: '',
-      createdBy: {
-        id: '1',
-        name: 'System Automation',
-        role: 'system'
-      },
+      createdBy: 'system',
       dateRange: {
         start: '',
         end: ''
@@ -100,11 +92,7 @@ export default function AutomationPage() {
         reportTemplate: {
           type: 'project',
           title: '',
-          createdBy: {
-            id: '1',
-            name: 'System Automation',
-            role: 'system'
-          },
+          createdBy: 'system',
           dateRange: {
             start: '',
             end: ''
