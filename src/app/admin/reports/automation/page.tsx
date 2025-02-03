@@ -5,17 +5,51 @@ import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import type { ReportAutomation } from '@/types/automation';
 
+interface Report {
+  id: string;
+  type: 'project' | 'financial' | 'performance';
+  title: string;
+  createdAt: string;
+  createdBy: {
+    id: string;
+    name: string;
+    role: string;
+  };
+  lastUpdated: string;
+  dateRange: {
+    start: string;
+    end: string;
+  };
+  metrics: Record<string, any>;
+}
+
+interface AutomationRule {
+  id?: string;
+  name: string;
+  description: string;
+  schedule: string;
+  recipients: string[];
+  enabled: boolean;
+  reportTemplate: Omit<Report, 'id' | 'createdAt' | 'lastUpdated'>;
+}
+
 export default function AutomationPage() {
   const [automations, setAutomations] = useState<ReportAutomation[]>([]);
   const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState<Partial<ReportAutomation>>({
+  const [formData, setFormData] = useState<AutomationRule>({
     name: '',
-    frequency: 'weekly',
+    description: '',
+    schedule: 'weekly',
     recipients: [],
     enabled: true,
     reportTemplate: {
       type: 'project',
       title: '',
+      createdBy: {
+        id: '1',
+        name: 'System Automation',
+        role: 'system'
+      },
       dateRange: {
         start: '',
         end: ''
@@ -50,12 +84,18 @@ export default function AutomationPage() {
       setShowForm(false);
       setFormData({
         name: '',
-        frequency: 'weekly',
+        description: '',
+        schedule: 'weekly',
         recipients: [],
         enabled: true,
         reportTemplate: {
           type: 'project',
           title: '',
+          createdBy: {
+            id: '1',
+            name: 'System Automation',
+            role: 'system'
+          },
           dateRange: {
             start: '',
             end: ''
@@ -120,7 +160,7 @@ export default function AutomationPage() {
                       <span className={`ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         automation.enabled ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
                       }`}>
-                        {automation.frequency}
+                        {automation.schedule}
                       </span>
                     </div>
                     <div className="flex items-center space-x-4">
@@ -192,13 +232,13 @@ export default function AutomationPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="frequency" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="schedule" className="block text-sm font-medium text-gray-700">
                     Fréquence
                   </label>
                   <select
-                    id="frequency"
-                    value={formData.frequency}
-                    onChange={(e) => setFormData({ ...formData, frequency: e.target.value as ReportAutomation['frequency'] })}
+                    id="schedule"
+                    value={formData.schedule}
+                    onChange={(e) => setFormData({ ...formData, schedule: e.target.value as ReportAutomation['schedule'] })}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   >
                     <option value="daily">Quotidien</option>
