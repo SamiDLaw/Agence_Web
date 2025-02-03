@@ -4,30 +4,7 @@ import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import type { ReportAutomation, AutomationFrequency } from '@/types/automation';
-
-interface Report {
-  id: string;
-  type: 'project' | 'financial' | 'performance';
-  title: string;
-  createdAt: string;
-  createdBy: string;
-  lastUpdated: string;
-  dateRange: {
-    start: string;
-    end: string;
-  };
-  metrics: Record<string, any>;
-}
-
-interface AutomationRule {
-  id?: string;
-  name: string;
-  description: string;
-  frequency: AutomationFrequency;
-  recipients: string[];
-  enabled: boolean;
-  reportTemplate: Omit<Report, 'id' | 'createdAt' | 'lastUpdated'>;
-}
+import type { Report } from '@/types/report';
 
 export default function AutomationPage() {
   const [automations, setAutomations] = useState<ReportAutomation[]>([]);
