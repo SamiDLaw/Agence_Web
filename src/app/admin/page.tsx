@@ -6,6 +6,32 @@ import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import VisitsDetailsModal from './components/VisitsDetailsModal';
 
+interface DashboardData {
+  totalProjects: number;
+  activeProjects: number;
+  completedProjects: number;
+  revenue: {
+    total: number;
+    monthly: number;
+    yearly: number;
+  };
+  clients: {
+    total: number;
+    active: number;
+    new: number;
+  };
+  tasks: {
+    total: number;
+    completed: number;
+    pending: number;
+  };
+  performance: {
+    onTime: number;
+    delayed: number;
+    efficiency: number;
+  };
+}
+
 export default function AdminDashboard() {
   const [orders, setOrders] = useState([]);
   const [stats, setStats] = useState({
