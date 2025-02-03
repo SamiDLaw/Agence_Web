@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
-import type { ReportAutomation } from '@/types/automation';
+import type { ReportAutomation, AutomationFrequency } from '@/types/automation';
 
 interface Report {
   id: string;
@@ -27,7 +27,7 @@ interface AutomationRule {
   id?: string;
   name: string;
   description: string;
-  schedule: string;
+  frequency: AutomationFrequency;
   recipients: string[];
   enabled: boolean;
   reportTemplate: Omit<Report, 'id' | 'createdAt' | 'lastUpdated'>;
@@ -36,10 +36,10 @@ interface AutomationRule {
 export default function AutomationPage() {
   const [automations, setAutomations] = useState<ReportAutomation[]>([]);
   const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState<AutomationRule>({
+  const [formData, setFormData] = useState<Omit<ReportAutomation, 'id' | 'lastRun' | 'nextRun'>>({
     name: '',
     description: '',
-    schedule: 'weekly',
+    frequency: 'weekly',
     recipients: [],
     enabled: true,
     reportTemplate: {
@@ -72,20 +72,29 @@ export default function AutomationPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const response = await fetch('/api/automation/reports', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
-    
-    if (response.ok) {
-      await fetchAutomations();
+    try {
+      const response = await fetch('/api/admin/automations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          nextRun: calculateNextRun(formData.frequency)
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erreur lors de la création de l\'automatisation');
+      }
+
+      const newAutomation = await response.json();
+      setAutomations([...automations, newAutomation]);
       setShowForm(false);
       setFormData({
         name: '',
         description: '',
-        schedule: 'weekly',
+        frequency: 'weekly',
         recipients: [],
         enabled: true,
         reportTemplate: {
@@ -103,7 +112,28 @@ export default function AutomationPage() {
           metrics: {}
         }
       });
+    } catch (error) {
+      console.error('Erreur:', error);
     }
+  };
+
+  const calculateNextRun = (frequency: AutomationFrequency): string => {
+    const now = new Date();
+    switch (frequency) {
+      case 'daily':
+        now.setDate(now.getDate() + 1);
+        break;
+      case 'weekly':
+        now.setDate(now.getDate() + 7);
+        break;
+      case 'monthly':
+        now.setMonth(now.getMonth() + 1);
+        break;
+      case 'quarterly':
+        now.setMonth(now.getMonth() + 3);
+        break;
+    }
+    return now.toISOString();
   };
 
   const toggleAutomation = async (id: string, enabled: boolean) => {
@@ -160,7 +190,7 @@ export default function AutomationPage() {
                       <span className={`ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         automation.enabled ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
                       }`}>
-                        {automation.schedule}
+                        {automation.frequency}
                       </span>
                     </div>
                     <div className="flex items-center space-x-4">
@@ -232,13 +262,13 @@ export default function AutomationPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="schedule" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="frequency" className="block text-sm font-medium text-gray-700">
                     Fréquence
                   </label>
                   <select
-                    id="schedule"
-                    value={formData.schedule}
-                    onChange={(e) => setFormData({ ...formData, schedule: e.target.value as ReportAutomation['schedule'] })}
+                    id="frequency"
+                    value={formData.frequency}
+                    onChange={(e) => setFormData({ ...formData, frequency: e.target.value as AutomationFrequency })}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   >
                     <option value="daily">Quotidien</option>
