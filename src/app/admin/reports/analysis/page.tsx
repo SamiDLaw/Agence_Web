@@ -32,16 +32,39 @@ ChartJS.register(
 export default function AnalysisPage() {
   const [analyses, setAnalyses] = useState<PredictiveAnalysis[]>([]);
   const [selectedAnalysis, setSelectedAnalysis] = useState<PredictiveAnalysis | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     fetchAnalyses();
   }, []);
 
   const fetchAnalyses = async () => {
-    const response = await fetch('/api/automation/reports?type=analysis');
-    if (response.ok) {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch('/api/automation/reports?type=analysis');
+      if (!response.ok) {
+        throw new Error('Erreur lors de la récupération des analyses');
+      }
       const data = await response.json();
-      setAnalyses(data);
+      // Validation basique du type
+      if (Array.isArray(data) && data.every(item => 
+        typeof item === 'object' && 
+        'id' in item && 
+        'projectId' in item && 
+        'predictions' in item
+      )) {
+        setAnalyses(data as PredictiveAnalysis[]);
+      } else {
+        throw new Error('Format de données invalide');
+      }
+    } catch (err) {
+      console.error('Erreur:', err);
+      setError(err instanceof Error ? err.message : 'Une erreur est survenue');
+      setAnalyses([]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
