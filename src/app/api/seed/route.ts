@@ -173,7 +173,7 @@ export async function GET() {
                 type: 'Dépassement de budget',
                 probability: 0.5,
                 impact: 0.9,
-                mitigation: 'Réviser l'allocation des ressources'
+                mitigation: "Réviser l'allocation des ressources"
               }
             ]
           },
@@ -186,13 +186,13 @@ export async function GET() {
           recommendations: [
             {
               type: 'Performance',
-              description: 'Augmenter la vélocité de l'équipe',
+              description: 'Augmenter la vélocité de l\'équipe',
               priority: 'high',
               potentialImpact: 0.8
             },
             {
               type: 'Budget',
-              description: 'Optimiser l'allocation des ressources',
+              description: 'Optimiser l\'allocation des ressources',
               priority: 'medium',
               potentialImpact: 0.6
             }
