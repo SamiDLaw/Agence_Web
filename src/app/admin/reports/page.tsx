@@ -13,6 +13,7 @@ export default function ReportsPage() {
       id: '1',
       type: 'project',
       title: 'Rapport mensuel des projets',
+      description: 'Rapport détaillé des activités et performances des projets',
       dateRange: {
         start: '2025-01-01',
         end: '2025-01-31'
@@ -48,11 +49,18 @@ export default function ReportsPage() {
               timeSpent: 2400
             }
           ]
-        }]
+        }],
+        team: [],
+        financial: []
       },
-      createdAt: '2025-01-28T10:00:00.000Z',
-      createdBy: '1',
-      lastUpdated: '2025-01-28T10:00:00.000Z'
+      createdAt: new Date().toISOString(),
+      createdBy: 'system',
+      lastUpdated: new Date().toISOString(),
+      filters: {
+        projects: ['1'],
+        team: ['1', '2'],
+        categories: ['development', 'design']
+      }
     }
   ]);
 
