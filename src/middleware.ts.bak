@@ -1,0 +1,65 @@
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { verifyAuth } from '@/lib/auth';
+
+export async function middleware(request: NextRequest) {
+  console.log('Middleware - URL demandée:', request.nextUrl.pathname);
+  
+  // Configuration des routes protégées
+  const isAdminRoute = request.nextUrl.pathname.startsWith('/admin');
+  const isLoginPage = request.nextUrl.pathname === '/admin/login';
+  
+  // Si ce n'est pas une route admin, on continue
+  if (!isAdminRoute) {
+    console.log('Route non-admin, passage direct');
+    return NextResponse.next();
+  }
+
+  // Récupération du token
+  const token = request.cookies.get('admin_token')?.value;
+  console.log('Token trouvé:', !!token);
+
+  try {
+    // Si on a un token, on vérifie sa validité
+    if (token) {
+      const decoded = await verifyAuth(token);
+      console.log('Token vérifié avec succès');
+
+      // Si on est sur la page de login avec un token valide
+      if (isLoginPage) {
+        console.log('Redirection vers /admin (token valide sur page login)');
+        return NextResponse.redirect(new URL('/admin', request.url));
+      }
+
+      // Pour les autres pages admin avec un token valide
+      return NextResponse.next();
+    }
+
+    // Pas de token
+    console.log('Pas de token trouvé');
+
+    // Si on n'est pas sur la page de login, on redirige
+    if (!isLoginPage) {
+      console.log('Redirection vers login (pas de token)');
+      return NextResponse.redirect(new URL('/admin/login', request.url));
+    }
+
+    // Sur la page de login sans token, on continue
+    return NextResponse.next();
+  } catch (error) {
+    console.error('Erreur de vérification du token:', error);
+    
+    // En cas d'erreur de token, on redirige vers login sauf si on y est déjà
+    if (!isLoginPage) {
+      console.log('Redirection vers login (token invalide)');
+      return NextResponse.redirect(new URL('/admin/login', request.url));
+    }
+    
+    return NextResponse.next();
+  }
+}
+
+// Configuration des routes à protéger
+export const config = {
+  matcher: ['/admin/:path*']
+};
