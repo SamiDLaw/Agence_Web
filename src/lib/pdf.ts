@@ -1,6 +1,6 @@
 import { Document, Page, Text, View, StyleSheet, PDFViewer } from '@react-pdf/renderer';
 
-const styles = StyleSheet.create({
+const pdfStyles = StyleSheet.create({
   page: {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
@@ -50,10 +50,10 @@ const styles = StyleSheet.create({
 
 export const InvoicePDF = ({ order }: any) => (
   <Document>
-    <Page size="A4" style={styles.page}>
-      <View style={styles.header}>
-        <Text style={styles.title}>FACTURE</Text>
-        <Text style={styles.companyInfo}>
+    <Page size="A4" style={pdfStyles.page}>
+      <View style={pdfStyles.header}>
+        <Text style={pdfStyles.title}>FACTURE</Text>
+        <Text style={pdfStyles.companyInfo}>
           Lawgency
           {'\n'}
           123 Rue du Commerce
@@ -64,7 +64,7 @@ export const InvoicePDF = ({ order }: any) => (
         </Text>
       </View>
 
-      <View style={styles.section}>
+      <View style={pdfStyles.section}>
         <Text>Facture N° : {order.id}</Text>
         <Text>Date : {new Date(order.createdAt).toLocaleDateString()}</Text>
         <Text>Client : {order.customerDetails.name}</Text>
@@ -74,46 +74,46 @@ export const InvoicePDF = ({ order }: any) => (
         )}
       </View>
 
-      <View style={styles.section}>
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Description</Text>
+      <View style={pdfStyles.section}>
+        <View style={pdfStyles.table}>
+          <View style={pdfStyles.tableRow}>
+            <View style={pdfStyles.tableCol}>
+              <Text style={pdfStyles.tableCell}>Description</Text>
             </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Quantité</Text>
+            <View style={pdfStyles.tableCol}>
+              <Text style={pdfStyles.tableCell}>Quantité</Text>
             </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Prix unitaire</Text>
+            <View style={pdfStyles.tableCol}>
+              <Text style={pdfStyles.tableCell}>Prix unitaire</Text>
             </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Total</Text>
+            <View style={pdfStyles.tableCol}>
+              <Text style={pdfStyles.tableCell}>Total</Text>
             </View>
           </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>{order.pack.name}</Text>
+          <View style={pdfStyles.tableRow}>
+            <View style={pdfStyles.tableCol}>
+              <Text style={pdfStyles.tableCell}>{order.pack.name}</Text>
             </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>1</Text>
+            <View style={pdfStyles.tableCol}>
+              <Text style={pdfStyles.tableCell}>1</Text>
             </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>{order.amount}€</Text>
+            <View style={pdfStyles.tableCol}>
+              <Text style={pdfStyles.tableCell}>{order.amount}€</Text>
             </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>{order.amount}€</Text>
+            <View style={pdfStyles.tableCol}>
+              <Text style={pdfStyles.tableCell}>{order.amount}€</Text>
             </View>
           </View>
         </View>
       </View>
 
-      <View style={styles.section}>
+      <View style={pdfStyles.section}>
         <Text>Total HT : {(order.amount * 0.8).toFixed(2)}€</Text>
         <Text>TVA (20%) : {(order.amount * 0.2).toFixed(2)}€</Text>
         <Text>Total TTC : {order.amount}€</Text>
       </View>
 
-      <View style={styles.section}>
+      <View style={pdfStyles.section}>
         <Text style={{ fontSize: 10, color: '#666666' }}>
           Conditions de paiement : Paiement à réception de facture
           {'\n'}
