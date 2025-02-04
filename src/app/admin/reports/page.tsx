@@ -220,6 +220,30 @@ export default function ReportsPage() {
     </div>
   );
 
+  const handleExportPDF = async () => {
+    if (!activeReport) return;
+    
+    try {
+      const response = await fetch(`/api/reports/${activeReport.id}`);
+      const report = await response.json();
+      exportToPDF(report);
+    } catch (error) {
+      console.error('Erreur lors de l\'export PDF:', error);
+    }
+  };
+
+  const handleExportExcel = async () => {
+    if (!activeReport) return;
+    
+    try {
+      const response = await fetch(`/api/reports/${activeReport.id}`);
+      const report = await response.json();
+      exportToExcel(report);
+    } catch (error) {
+      console.error('Erreur lors de l\'export Excel:', error);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -288,13 +312,13 @@ export default function ReportsPage() {
                   </h2>
                   <div className="flex space-x-2">
                     <button
-                      onClick={() => exportToPDF(activeReport)}
+                      onClick={handleExportPDF}
                       className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                     >
                       Exporter PDF
                     </button>
                     <button
-                      onClick={() => exportToExcel(activeReport)}
+                      onClick={handleExportExcel}
                       className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                     >
                       Exporter Excel
