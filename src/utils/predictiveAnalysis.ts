@@ -157,3 +157,58 @@ export function generatePredictiveAnalysis(metrics: ProjectMetrics): PredictiveA
     recommendations
   };
 }
+
+import { Project } from '@/types/reports';
+
+interface Risk {
+  type: string;
+  probability: number;
+  impact: number;
+  mitigation: string;
+}
+
+export function analyzeProjectRisks(project: Project): Risk[] {
+  const risks: Risk[] = [];
+
+  // Analyse du budget
+  if (project.budget > 10000) {
+    risks.push({
+      type: 'Budget élevé',
+      probability: 0.7,
+      impact: 0.8,
+      mitigation: 'Mettre en place un suivi budgétaire rigoureux'
+    });
+  }
+
+  // Analyse du temps passé
+  if (project.timeSpent > 100) {
+    risks.push({
+      type: 'Durée prolongée',
+      probability: 0.6,
+      impact: 0.7,
+      mitigation: 'Optimiser la gestion du temps et revoir les priorités'
+    });
+  }
+
+  // Analyse du statut
+  if (project.status === 'En retard') {
+    risks.push({
+      type: 'Retard de livraison',
+      probability: 0.8,
+      impact: 0.9,
+      mitigation: 'Accélérer le développement ou ajuster les délais'
+    });
+  }
+
+  // Analyse des ressources
+  if (project.timeSpent > project.budget / 100) {
+    risks.push({
+      type: 'Dépassement de ressources',
+      probability: 0.6,
+      impact: 0.9,
+      mitigation: 'Réviser l'allocation des ressources et optimiser les coûts'
+    });
+  }
+
+  return risks;
+}
