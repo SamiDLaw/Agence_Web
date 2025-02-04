@@ -1,8 +1,17 @@
 import type { NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import bcrypt from 'bcryptjs';
+import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
 
-export const authConfig = {
+interface User {
+  id: string;
+  role?: string;
+  email: string;
+  name: string;
+}
+
+export const authConfig: NextAuthConfig = {
   pages: {
     signIn: '/admin/login',
     signOut: '/admin/login',
@@ -23,15 +32,15 @@ export const authConfig = {
     },
     jwt({ token, user }) {
       if (user) {
-        token.role = user.role;
+        token.role = (user as User).role;
         token.id = user.id;
       }
       return token;
     },
     session({ session, token }) {
-      if (token && session.user) {
-        session.user.role = token.role as string;
+      if (session.user) {
         session.user.id = token.id as string;
+        session.user.role = token.role as string;
       }
       return session;
     },
@@ -48,16 +57,34 @@ export const authConfig = {
 
         if (parsedCredentials.success) {
           const { email, password } = parsedCredentials.data;
-          // TODO: Implémenter la vérification avec la base de données
-          // Ceci est juste un exemple temporaire
+
+          // Admin login
           if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
             return {
-              id: '1',
-              email: email,
+              id: 'admin',
+              email: process.env.ADMIN_EMAIL,
               name: 'Admin',
-              role: 'ADMIN'
+              role: 'admin'
             };
           }
+
+          // Regular user login
+          const user = await prisma.user.findUnique({
+            where: { email }
+          });
+
+          if (!user) return null;
+
+          const passwordsMatch = await bcrypt.compare(password, user.password);
+
+          if (!passwordsMatch) return null;
+
+          return {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            role: 'user'
+          };
         }
         
         throw new Error("Email ou mot de passe incorrect");
@@ -69,4 +96,4 @@ export const authConfig = {
     maxAge: 24 * 60 * 60, // 24 heures
   },
   secret: process.env.NEXTAUTH_SECRET,
-} satisfies NextAuthConfig;
+};

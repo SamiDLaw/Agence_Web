@@ -1,14 +1,11 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { ThemeProvider as NextThemesProvider, type ThemeProviderProps } from 'next-themes';
 
-interface ProvidersProps {
+type ProvidersProps = {
   children: ReactNode;
-  attribute?: string;
-  defaultTheme?: string;
-  enableSystem?: boolean;
-}
+} & Omit<ThemeProviderProps, 'children'>;
 
 export function Providers({ children, ...props }: ProvidersProps) {
   return (
