@@ -8,6 +8,11 @@ interface AnimatedSectionProps {
   direction?: 'up' | 'down' | 'left' | 'right';
 }
 
+interface DirectionOffset {
+  x?: number;
+  y?: number;
+}
+
 export function AnimatedSection({ 
   children, 
   className = '', 
@@ -17,7 +22,7 @@ export function AnimatedSection({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const directionOffset = {
+  const directionOffset: Record<string, DirectionOffset> = {
     up: { y: 100 },
     down: { y: -100 },
     left: { x: 100 },
@@ -31,12 +36,13 @@ export function AnimatedSection({
       ref={ref}
       initial={{
         opacity: 0,
-        ...initialOffset
+        x: initialOffset.x ?? 0,
+        y: initialOffset.y ?? 0
       }}
       animate={{
         opacity: isInView ? 1 : 0,
-        x: isInView ? 0 : (initialOffset.x || 0),
-        y: isInView ? 0 : (initialOffset.y || 0)
+        x: isInView ? 0 : (initialOffset.x ?? 0),
+        y: isInView ? 0 : (initialOffset.y ?? 0)
       }}
       transition={{
         duration: 0.8,
