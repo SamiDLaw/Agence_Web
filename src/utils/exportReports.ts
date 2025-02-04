@@ -3,7 +3,33 @@ import autoTable from 'jspdf-autotable';
 import * as XLSX from 'xlsx';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
-import type { Report } from '@/types/report';
+import { Report } from '@/types/reports';
+import { writeFile } from 'fs/promises';
+import { join } from 'path';
+
+interface ProjectMetrics {
+  totalProjects: number;
+  activeProjects: number;
+  completedProjects: number;
+}
+
+interface TeamMetrics {
+  totalMembers: number;
+  activeMembers: number;
+  totalTimeSpent: number;
+}
+
+interface FinancialMetrics {
+  totalBudget: number;
+  totalRevenue: number;
+  totalExpenses: number;
+}
+
+interface ReportMetrics {
+  projects: ProjectMetrics;
+  team?: TeamMetrics;
+  financial?: FinancialMetrics;
+}
 
 export const exportToPDF = (report: Report) => {
   const doc = new jsPDF();
@@ -24,10 +50,10 @@ export const exportToPDF = (report: Report) => {
   yPosition += 10;
 
   const summaryData = [
-    ["Nombre total de projets", report.metrics.totalProjects.toString()],
-    ["Projets en cours", report.metrics.activeProjects.toString()],
-    ["Budget total", `${report.metrics.totalBudget}€`],
-    ["Temps total passé", `${report.metrics.totalTimeSpent}h`]
+    ["Nombre total de projets", report.metrics.projects.totalProjects.toString()],
+    ["Projets en cours", report.metrics.projects.activeProjects.toString()],
+    ["Budget total", `${report.metrics.financial?.totalBudget || 0}€`],
+    ["Temps total passé", `${report.metrics.team?.totalTimeSpent || 0}h`]
   ];
 
   autoTable(doc, {
@@ -40,7 +66,7 @@ export const exportToPDF = (report: Report) => {
   yPosition = (doc as any).lastAutoTable.finalY + 20;
 
   // Détails des projets
-  report.metrics.projects.forEach((project, index) => {
+  report.projects.forEach((project, index) => {
     // Vue d'ensemble
     doc.setFontSize(16);
     doc.text("Vue d'ensemble", 20, yPosition);
@@ -103,7 +129,7 @@ export const exportToPDF = (report: Report) => {
     yPosition = (doc as any).lastAutoTable.finalY + 20;
 
     // Nouvelle page si ce n'est pas le dernier projet
-    if (index < report.metrics.projects.length - 1) {
+    if (index < report.projects.length - 1) {
       doc.addPage();
       yPosition = 20;
     }
@@ -113,49 +139,45 @@ export const exportToPDF = (report: Report) => {
   doc.save(`${report.title}_${format(new Date(), 'yyyy-MM-dd')}.pdf`);
 };
 
-export const exportToExcel = (report: Report) => {
-  const wb = XLSX.utils.book_new();
-
-  // Résumé global
+export async function exportToExcel(report: Report) {
   const summaryData = [
-    ["Métrique", "Valeur"],
-    ["Nombre total de projets", report.metrics.totalProjects],
-    ["Projets en cours", report.metrics.activeProjects],
-    ["Budget total", report.metrics.totalBudget],
-    ["Temps total passé", report.metrics.totalTimeSpent]
+    ["Nombre total de projets", report.metrics.projects.totalProjects.toString()],
+    ["Projets en cours", report.metrics.projects.activeProjects.toString()],
+    ["Budget total", `${report.metrics.financial?.totalBudget || 0}€`],
+    ["Temps total passé", `${report.metrics.team?.totalTimeSpent || 0}h`]
   ];
 
+  const projectsData = report.projects ? [
+    ["Nom du projet", "État", "Budget", "Temps passé"],
+    ...report.projects.map(project => [
+      project.name,
+      project.status,
+      `${project.budget}€`,
+      `${project.timeSpent}h`
+    ])
+  ] : [];
+
+  const workbook = XLSX.utils.book_new();
+
+  // Ajouter la feuille de résumé
   const summaryWs = XLSX.utils.aoa_to_sheet(summaryData);
-  XLSX.utils.book_append_sheet(wb, summaryWs, "Résumé global");
+  XLSX.utils.book_append_sheet(workbook, summaryWs, "Résumé");
 
-  // Détails des projets
-  report.metrics.projects.forEach(project => {
-    const projectData = [
-      ["Vue d'ensemble"],
-      ["Métrique", "Valeur"],
-      ["Nom du projet", project.name],
-      ["Statut", project.status],
-      ["Budget", project.budget],
-      ["Temps passé", project.timeSpent],
-      ["Tâches complétées", `${project.completedTasks}/${project.totalTasks}`],
-      [],
-      ["Répartition du temps"],
-      ["Type", "Heures"],
-      ...Object.entries(project.timeSpentByType),
-      [],
-      ["Performance de l'équipe"],
-      ["Membre", "Tâches complétées", "Temps passé"],
-      ...project.teamPerformance.map(member => [
-        member.name,
-        member.tasksCompleted,
-        member.timeSpent
-      ])
-    ];
+  // Ajouter la feuille des projets
+  if (projectsData.length > 0) {
+    const projectsWs = XLSX.utils.aoa_to_sheet(projectsData);
+    XLSX.utils.book_append_sheet(workbook, projectsWs, "Projets");
+  }
 
-    const projectWs = XLSX.utils.aoa_to_sheet(projectData);
-    XLSX.utils.book_append_sheet(wb, projectWs, project.name.slice(0, 31));
-  });
+  // Générer le buffer Excel
+  const excelBuffer = XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' });
 
-  // Enregistrer le fichier Excel
-  XLSX.writeFile(wb, `${report.title}_${format(new Date(), 'yyyy-MM-dd')}.xlsx`);
-};
+  // Créer le nom du fichier avec la date
+  const fileName = `rapport_${new Date().toISOString().split('T')[0]}.xlsx`;
+
+  // Retourner le buffer et le nom du fichier
+  return {
+    buffer: excelBuffer,
+    fileName
+  };
+}
