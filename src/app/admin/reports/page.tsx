@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import type { Report, ProjectMetrics, TeamMetrics, FinancialMetrics } from '@/types/report';
 import { ProjectCharts } from '@/components/charts/ProjectCharts';
-import { exportToPDF, exportToExcel } from '@/utils/exportReports';
+import { exportToExcel } from '@/utils/exportReports';
 
 export default function ReportsPage() {
   const [reports] = useState<Report[]>([
@@ -220,18 +220,6 @@ export default function ReportsPage() {
     </div>
   );
 
-  const handleExportPDF = async () => {
-    if (!activeReport) return;
-    
-    try {
-      const response = await fetch(`/api/reports/${activeReport.id}`);
-      const report = await response.json();
-      exportToPDF(report);
-    } catch (error) {
-      console.error('Erreur lors de l\'export PDF:', error);
-    }
-  };
-
   const handleExportExcel = async () => {
     if (!activeReport) return;
     
@@ -312,25 +300,10 @@ export default function ReportsPage() {
                   </h2>
                   <div className="flex space-x-2">
                     <button
-                      onClick={handleExportPDF}
-                      className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-                    >
-                      Exporter PDF
-                    </button>
-                    <button
                       onClick={handleExportExcel}
                       className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                     >
                       Exporter Excel
-                    </button>
-                    <button
-                      onClick={() => setActiveReport(null)}
-                      className="text-gray-400 hover:text-gray-500"
-                    >
-                      <span className="sr-only">Fermer</span>
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
                     </button>
                   </div>
                 </div>
