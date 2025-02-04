@@ -173,40 +173,40 @@ export function analyzeProjectRisks(project: Project): Risk[] {
   // Analyse du budget
   if (project.budget > 10000) {
     risks.push({
-      type: 'Budget élevé',
+      type: "Budget élevé",
       probability: 0.7,
       impact: 0.8,
-      mitigation: 'Mettre en place un suivi budgétaire rigoureux'
+      mitigation: "Mettre en place un suivi budgétaire rigoureux"
     });
   }
 
   // Analyse du temps passé
   if (project.timeSpent > 100) {
     risks.push({
-      type: 'Durée prolongée',
+      type: "Durée prolongée",
       probability: 0.6,
       impact: 0.7,
-      mitigation: 'Optimiser la gestion du temps et revoir les priorités'
+      mitigation: "Optimiser la gestion du temps et revoir les priorités"
     });
   }
 
   // Analyse du statut
-  if (project.status === 'En retard') {
+  if (project.status === "En retard") {
     risks.push({
-      type: 'Retard de livraison',
+      type: "Retard de livraison",
       probability: 0.8,
       impact: 0.9,
-      mitigation: 'Accélérer le développement ou ajuster les délais'
+      mitigation: "Accélérer le développement ou ajuster les délais"
     });
   }
 
   // Analyse des ressources
   if (project.timeSpent > project.budget / 100) {
     risks.push({
-      type: 'Dépassement de ressources',
+      type: "Dépassement de ressources",
       probability: 0.6,
       impact: 0.9,
-      mitigation: 'Réviser l'allocation des ressources et optimiser les coûts'
+      mitigation: "Réviser l'allocation des ressources et optimiser les coûts"
     });
   }
 
