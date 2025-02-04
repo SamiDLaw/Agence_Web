@@ -1,5 +1,5 @@
 import { Document, Page, Text, View } from '@react-pdf/renderer';
-import { pdfStyles } from './pdfStyles';
+import pdfStyles from './pdfStyles';
 
 export const InvoicePDF = ({ order }: any) => (
   <Document>

@@ -1,6 +1,6 @@
 import { StyleSheet } from '@react-pdf/renderer';
 
-export const pdfStyles = StyleSheet.create({
+const pdfStyles = StyleSheet.create({
   page: {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
@@ -47,3 +47,5 @@ export const pdfStyles = StyleSheet.create({
     fontSize: 10,
   },
 });
+
+export default pdfStyles;
