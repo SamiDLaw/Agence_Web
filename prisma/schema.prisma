@@ -26,7 +26,7 @@ model Order {
   status          String      // pending, paid, processing, completed
   amount          Float
   paymentMethod   String      // card, cash
-  stripeSessionId String?     // Pour le paiement Stripe
+  stripeSessionId String?     @unique // Pour le paiement Stripe
   customerDetails Json
   projectDetails  Json
   createdAt       DateTime    @default(now())
