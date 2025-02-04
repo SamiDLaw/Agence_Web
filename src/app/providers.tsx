@@ -7,6 +7,7 @@ interface ProvidersProps {
   children: ReactNode;
   attribute?: string;
   defaultTheme?: string;
+  enableSystem?: boolean;
 }
 
 export function Providers({ children, ...props }: ProvidersProps) {
