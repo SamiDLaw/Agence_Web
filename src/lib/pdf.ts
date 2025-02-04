@@ -1,52 +1,5 @@
-import { Document, Page, Text, View, StyleSheet, PDFViewer } from '@react-pdf/renderer';
-
-const pdfStyles = StyleSheet.create({
-  page: {
-    flexDirection: 'column',
-    backgroundColor: '#FFFFFF',
-    padding: 30,
-  },
-  header: {
-    marginBottom: 30,
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 10,
-  },
-  companyInfo: {
-    fontSize: 10,
-    color: '#666666',
-    marginBottom: 20,
-  },
-  section: {
-    margin: 10,
-    padding: 10,
-  },
-  table: {
-    display: 'flex',
-    width: 'auto',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderRightWidth: 0,
-    borderBottomWidth: 0,
-  },
-  tableRow: {
-    margin: 'auto',
-    flexDirection: 'row',
-  },
-  tableCol: {
-    width: '25%',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderLeftWidth: 0,
-    borderTopWidth: 0,
-  },
-  tableCell: {
-    margin: 'auto',
-    marginTop: 5,
-    fontSize: 10,
-  },
-});
+import { Document, Page, Text, View } from '@react-pdf/renderer';
+import { pdfStyles } from './pdfStyles';
 
 export const InvoicePDF = ({ order }: any) => (
   <Document>
@@ -114,7 +67,7 @@ export const InvoicePDF = ({ order }: any) => (
       </View>
 
       <View style={pdfStyles.section}>
-        <Text style={{ fontSize: 10, color: '#666666' }}>
+        <Text style={pdfStyles.companyInfo}>
           Conditions de paiement : Paiement à réception de facture
           {'\n'}
           En cas de retard de paiement, une pénalité de 3 fois le taux d&apos;intérêt légal sera appliquée
