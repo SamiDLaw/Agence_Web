@@ -63,6 +63,33 @@ export function PacksSection() {
         </div>
       </div>
 
+      {/* Option Drone FPV */}
+      <div className="container-custom py-12">
+        <div className="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-800 dark:to-blue-950 
+                      rounded-2xl p-8 shadow-xl relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]"></div>
+          <div className="relative z-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-2">Option Drone FPV</h3>
+                <p className="text-blue-100 text-lg max-w-2xl">
+                  Ajoutez une dimension spectaculaire à votre projet avec nos prises de vues aériennes en FPV.
+                  Une perspective unique pour des vidéos immersives et dynamiques.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                  <p className="text-white font-medium mb-2">À partir de 200€</p>
+                  <Link href="/contact" className="btn-white inline-block">
+                    En savoir plus
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Services Vidéo & Photo */}
       <div className="bg-gradient-to-b from-blue-50/10 via-white to-blue-50/20 
                     dark:from-blue-950/10 dark:via-slate-900/60 dark:to-blue-950/20">
@@ -116,33 +143,6 @@ export function PacksSection() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Option Drone FPV */}
-      <div className="container-custom py-12">
-        <div className="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-800 dark:to-blue-950 
-                      rounded-2xl p-8 shadow-xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)]"></div>
-          <div className="relative z-10">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Option Drone FPV</h3>
-                <p className="text-blue-100 text-lg max-w-2xl">
-                  Ajoutez une dimension spectaculaire à votre projet avec nos prises de vues aériennes en FPV.
-                  Une perspective unique pour des vidéos immersives et dynamiques.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <p className="text-white font-medium mb-2">Tarif adapté selon votre pack</p>
-                  <Link href="/contact" className="btn-white inline-block">
-                    En savoir plus
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
