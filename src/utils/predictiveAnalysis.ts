@@ -95,7 +95,7 @@ function generateRecommendations(metrics: ProjectMetrics, risks: PredictiveAnaly
     recommendations.push({
       type: "Performance",
       description: "Augmenter la vélocité de l'équipe en ajoutant des ressources ou en optimisant les processus",
-      priority: "high",
+      priority: "high" as const,
       potentialImpact: 0.8
     });
   }
@@ -107,7 +107,7 @@ function generateRecommendations(metrics: ProjectMetrics, risks: PredictiveAnaly
     recommendations.push({
       type: "Budget",
       description: "Optimiser l'allocation des ressources et revoir les estimations des tâches restantes",
-      priority: "high",
+      priority: "high" as const,
       potentialImpact: 0.9
     });
   }
@@ -118,7 +118,7 @@ function generateRecommendations(metrics: ProjectMetrics, risks: PredictiveAnaly
     recommendations.push({
       type: "Qualité",
       description: "Mettre en place des revues de code plus strictes et augmenter la couverture des tests",
-      priority: "medium",
+      priority: "medium" as const,
       potentialImpact: 0.7
     });
   }
