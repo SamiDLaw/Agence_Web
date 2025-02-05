@@ -6,12 +6,8 @@ export const webPacks = [
     subtitle: "Idéal pour les commerçants",
     description: "Solution complète pour établir une présence en ligne professionnelle et locale.",
     features: [
-      "Site vitrine professionnel",
-      "Optimisation SEO local",
-      "Photos professionnelles",
-      "Maintenance incluse (3 mois)",
-      "Support technique dédié",
-      "Option drone FPV disponible"
+      "Site vitrine",
+      "Photos professionnelles"
     ],
     price: "À partir de 450€",
     category: "web",
@@ -23,12 +19,9 @@ export const webPacks = [
     subtitle: "Visibilité 180",
     description: "Solution e-commerce complète avec stratégie marketing intégrée.",
     features: [
-      "Boutique en ligne personnalisée",
-      "Stratégie marketing digitale",
-      "Publicité Facebook optimisée",
-      "Formation à l'utilisation",
-      "Support marketing inclus",
-      "Option drone FPV disponible"
+      "Boutique en ligne",
+      "SEO local",
+      "Photos professionnelles"
     ],
     price: "À partir de 850€",
     category: "web",
@@ -40,12 +33,10 @@ export const webPacks = [
     subtitle: "Visibilité 360",
     description: "Solution tout-en-un pour une présence en ligne maximale.",
     features: [
-      "Site web professionnel avancé",
-      "SEO complet (local et national)",
-      "Shooting photo professionnel",
-      "Production vidéo professionnelle",
-      "Stratégie marketing personnalisée",
-      "Service drone FPV inclus"
+      "Site web avancé",
+      "SEO National",
+      "Photos et vidéos professionnelles",
+      "Refonte réseaux sociaux"
     ],
     price: "À partir de 1350€",
     category: "web",
@@ -55,13 +46,12 @@ export const webPacks = [
     id: 4,
     name: "Pack Gamma",
     subtitle: "Sur mesure",
-    description: "Un pack personnalisé adapté aux besoins spécifiques de votre entreprise.",
+    description: "Un pack personnalisé adapté aux besoins spécifiques.",
     features: [
-      "Analyse approfondie de vos besoins",
-      "Solutions web sur mesure",
-      "Accompagnement personnalisé",
-      "Budget adapté à vos objectifs",
-      "Option drone FPV disponible"
+      "Solutions personnalisées",
+      "Accompagnement dédié",
+      "Services sur mesure",
+      "Adaptabilité maximale"
     ],
     price: "Sur devis",
     category: "web",
