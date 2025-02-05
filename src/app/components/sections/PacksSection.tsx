@@ -2,8 +2,16 @@
 
 import { webPacks, mediaPacks } from '@/app/data/packs';
 import Link from 'next/link';
+import { useState } from 'react';
+import { OrderForm } from '../OrderForm';
 
 export function PacksSection() {
+  const [selectedPack, setSelectedPack] = useState<{
+    id: number;
+    name: string;
+    price: string;
+  } | null>(null);
+
   return (
     <section className="py-20">
       {/* Services Web */}
@@ -49,12 +57,16 @@ export function PacksSection() {
                   
                   <div className="text-center">
                     <div className="text-2xl font-bold text-slate-900 dark:text-white mb-6">{pack.price}</div>
-                    <Link 
-                      href={`/checkout/${pack.id}`}
+                    <button 
+                      onClick={() => setSelectedPack({
+                        id: pack.id,
+                        name: pack.name,
+                        price: pack.price
+                      })}
                       className="btn-primary w-full inline-block text-center"
                     >
-                      Choisir ce pack
-                    </Link>
+                      Commander
+                    </button>
                   </div>
                 </div>
               </div>
@@ -133,12 +145,16 @@ export function PacksSection() {
                   
                   <div className="text-center">
                     <div className="text-2xl font-bold text-slate-900 dark:text-white mb-6">{pack.price}</div>
-                    <Link 
-                      href={`/checkout/${pack.id}`}
+                    <button 
+                      onClick={() => setSelectedPack({
+                        id: pack.id,
+                        name: pack.name,
+                        price: pack.price
+                      })}
                       className="btn-primary w-full inline-block text-center"
                     >
-                      Choisir ce pack
-                    </Link>
+                      Commander
+                    </button>
                   </div>
                 </div>
               </div>
@@ -146,6 +162,14 @@ export function PacksSection() {
           </div>
         </div>
       </div>
+
+      {/* Formulaire de commande */}
+      {selectedPack && (
+        <OrderForm
+          selectedPack={selectedPack}
+          onClose={() => setSelectedPack(null)}
+        />
+      )}
     </section>
   );
 }
