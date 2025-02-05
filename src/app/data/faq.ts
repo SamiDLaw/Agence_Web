@@ -1,7 +1,7 @@
 export const faq = [
   {
     question: "Quels sont vos délais de réalisation moyens ?",
-    answer: "Nos délais varient selon la complexité du projet. En général, un site vitrine prend 4-6 semaines, une application web 8-12 semaines, et une production vidéo 2-4 semaines. Nous établissons un planning détaillé au début de chaque projet.",
+    answer: "Nos délais varient selon la complexité du projet. En général, un site vitrine prend 7-10 jours, une application web 3-4 semaines, et une production vidéo 1-2 semaines. Nous établissons un planning détaillé au début de chaque projet.",
   },
   {
     question: "Comment se déroule le processus de création ?",
@@ -9,7 +9,7 @@ export const faq = [
   },
   {
     question: "Proposez-vous un support après la livraison ?",
-    answer: "Oui, nous offrons un support technique de 3 mois après la livraison de chaque projet. Nous proposons également des contrats de maintenance sur mesure pour un accompagnement à plus long terme.",
+    answer: "Oui, nous offrons un support technique de 2 mois après la livraison de chaque projet. Nous proposons également des contrats de maintenance sur mesure pour un accompagnement à plus long terme.",
   },
   {
     question: "Quelles technologies utilisez-vous ?",
