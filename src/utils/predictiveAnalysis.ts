@@ -27,16 +27,16 @@ function analyzeRisks(metrics: ProjectMetrics): PredictiveAnalysis['predictions'
   const completionRate = metrics.completedTasks / metrics.totalTasks;
   if (completionRate < 0.3) {
     risks.push({
-      type: 'Retard potentiel',
+      type: "Dépassement de délai",
       probability: 0.7,
       impact: 0.8,
-      mitigation: 'Augmenter les ressources ou ajuster le planning'
+      mitigation: "Augmenter les ressources ou ajuster le planning"
     });
     risks.push({
-      type: 'Dépassement de délai',
+      type: "Dépassement de délai",
       probability: 0.6,
       impact: 0.9,
-      mitigation: 'Réviser l'allocation des ressources et optimiser les coûts'
+      mitigation: "Réviser l'allocation des ressources et optimiser les coûts"
     });
   }
   
@@ -45,10 +45,10 @@ function analyzeRisks(metrics: ProjectMetrics): PredictiveAnalysis['predictions'
   const estimatedFinalCost = avgCostPerTask * metrics.totalTasks;
   if (estimatedFinalCost > metrics.budget) {
     risks.push({
-      type: 'Dépassement de budget',
+      type: "Dépassement de budget",
       probability: 0.6,
       impact: 0.9,
-      mitigation: 'Réviser l'allocation des ressources et optimiser les coûts'
+      mitigation: "Réviser l'allocation des ressources et optimiser les coûts"
     });
   }
   
@@ -56,10 +56,10 @@ function analyzeRisks(metrics: ProjectMetrics): PredictiveAnalysis['predictions'
   const taskCompletionSpeed = metrics.totalTimeSpent / metrics.completedTasks;
   if (taskCompletionSpeed < 120) { // moins de 2h par tâche
     risks.push({
-      type: 'Risque de qualité',
+      type: "Risque de qualité",
       probability: 0.5,
       impact: 0.7,
-      mitigation: 'Renforcer les revues de code et les tests'
+      mitigation: "Renforcer les revues de code et les tests"
     });
   }
   
@@ -93,9 +93,9 @@ function generateRecommendations(metrics: ProjectMetrics, risks: PredictiveAnaly
   const completionRate = metrics.completedTasks / metrics.totalTasks;
   if (completionRate < 0.3) {
     recommendations.push({
-      type: 'Performance',
-      description: 'Augmenter la vélocité de l'équipe en ajoutant des ressources ou en optimisant les processus',
-      priority: 'high',
+      type: "Performance",
+      description: "Augmenter la vélocité de l'équipe en ajoutant des ressources ou en optimisant les processus",
+      priority: "high",
       potentialImpact: 0.8
     });
   }
@@ -105,9 +105,9 @@ function generateRecommendations(metrics: ProjectMetrics, risks: PredictiveAnaly
   const estimatedFinalCost = avgCostPerTask * metrics.totalTasks;
   if (estimatedFinalCost > metrics.budget) {
     recommendations.push({
-      type: 'Budget',
-      description: 'Optimiser l'allocation des ressources et revoir les estimations des tâches restantes',
-      priority: 'high',
+      type: "Budget",
+      description: "Optimiser l'allocation des ressources et revoir les estimations des tâches restantes",
+      priority: "high",
       potentialImpact: 0.9
     });
   }
@@ -116,9 +116,9 @@ function generateRecommendations(metrics: ProjectMetrics, risks: PredictiveAnaly
   const taskCompletionSpeed = metrics.totalTimeSpent / metrics.completedTasks;
   if (taskCompletionSpeed < 120) {
     recommendations.push({
-      type: 'Qualité',
-      description: 'Mettre en place des revues de code plus strictes et augmenter la couverture des tests',
-      priority: 'medium',
+      type: "Qualité",
+      description: "Mettre en place des revues de code plus strictes et augmenter la couverture des tests",
+      priority: "medium",
       potentialImpact: 0.7
     });
   }
@@ -133,7 +133,7 @@ export function generatePredictiveAnalysis(metrics: ProjectMetrics): PredictiveA
   const resourceNeeds = predictResourceNeeds(metrics);
   const recommendations = generateRecommendations(metrics, potentialRisks);
   
-  const riskLevel = potentialRisks.length > 2 ? 'high' : potentialRisks.length > 0 ? 'medium' : 'low';
+  const riskLevel = potentialRisks.length > 2 ? "high" : potentialRisks.length > 0 ? "medium" : "low";
   
   const avgCostPerTask = metrics.budget / metrics.totalTasks;
   const budgetForecast = {
@@ -143,8 +143,8 @@ export function generatePredictiveAnalysis(metrics: ProjectMetrics): PredictiveA
   };
   
   return {
-    id: '', // sera défini par l'API
-    projectId: '', // sera défini par l'appelant
+    id: "", // sera défini par l'API
+    projectId: "", // sera défini par l'appelant
     createdAt: new Date().toISOString(),
     predictions: {
       completionDate: completionDate.toISOString(),
