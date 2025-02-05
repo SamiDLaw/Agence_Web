@@ -36,7 +36,8 @@ export const webPacks = [
       "Site web avancé",
       "SEO National",
       "Photos et vidéos professionnelles",
-      "Refonte réseaux sociaux"
+      "Refonte réseaux sociaux",
+      "Intégration IA projet"
     ],
     price: "À partir de 1350€",
     category: "web",
