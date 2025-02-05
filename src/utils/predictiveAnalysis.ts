@@ -32,6 +32,12 @@ function analyzeRisks(metrics: ProjectMetrics): PredictiveAnalysis['predictions'
       impact: 0.8,
       mitigation: 'Augmenter les ressources ou ajuster le planning'
     });
+    risks.push({
+      type: 'Dépassement de délai',
+      probability: 0.6,
+      impact: 0.9,
+      mitigation: 'Réviser l'allocation des ressources et optimiser les coûts'
+    });
   }
   
   // Risque de dépassement de budget
