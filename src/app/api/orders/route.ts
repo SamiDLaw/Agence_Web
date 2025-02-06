@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
-import { sendOrderNotification } from '@/lib/email';
+import { sendNotificationEmail } from '@/lib/email';
 
 export async function GET(request: Request) {
   try {
@@ -62,7 +62,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { packId, packName, customerDetails } = body;
+    const { packId, packName, customerDetails, pack } = body;
 
     // Créer la commande dans la base de données
     const order = await prisma.order.create({
@@ -78,16 +78,15 @@ export async function POST(request: Request) {
     });
 
     // Envoyer une notification par email
-    await sendOrderNotification({
-      orderDetails: {
-        id: order.id,
-        packName,
-        customerName: customerDetails.name,
-        customerEmail: customerDetails.email,
-        customerPhone: customerDetails.phone,
-        customerCompany: customerDetails.company,
-        message: customerDetails.message,
-      },
+    await sendNotificationEmail({
+      id: order.id,
+      packName,
+      customerName: customerDetails.name,
+      customerEmail: customerDetails.email,
+      customerPhone: customerDetails.phone,
+      customerCompany: customerDetails.company || undefined,
+      message: customerDetails.message || undefined,
+      amount: pack.price,
     });
 
     return NextResponse.json(order);
