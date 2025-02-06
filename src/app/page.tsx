@@ -11,6 +11,7 @@ import { FaqSection } from "./components/sections/FaqSection";
 import { ContactFormSection } from "./components/sections/ContactFormSection";
 import { FooterSection } from "./components/sections/FooterSection";
 import { PromoVideoSection } from "./components/sections/PromoVideoSection";
+import { DroneCarousel } from "./components/sections/DroneCarousel";
 
 const services = [
   {
@@ -46,33 +47,35 @@ const packs = [
       "Optimisation SEO de base",
       "Formulaire de contact integre",
       "Hebergement + nom de domaine inclus (1 an)",
-      "Option drone FPV disponible",
+      "Option drone FPV disponible (+350€)",
     ],
   },
   {
-    name: "Shambles 360",
+    name: "Shambles",
     price: "850€",
-    description: "Pour les entreprises cherchant une solution complete avec plusieurs pages et un design sur-mesure.",
+    description: "Solution complete pour les entreprises en croissance necessitant une presence web plus elaboree.",
     features: [
-      "Site web multipage",
-      "Design UX/UI personnalisé",
+      "Site web multi-pages professionnel",
+      "Design personnalise",
       "Optimisation SEO avancee",
-      "Integration des reseaux sociaux",
-      "Gestion de contenu via WordPress",
-      "Option drone FPV disponible",
+      "Integration reseaux sociaux",
+      "Systeme de blog integre",
+      "Analytics et rapports mensuels",
+      "Option drone FPV disponible (+350€)",
     ],
   },
   {
-    name: "Lawfull Experience",
-    price: "1350€",
-    description: "Pour une experience web immersive et une strategie de branding poussee.",
+    name: "Lawgency",
+    price: "1450€",
+    description: "Pack premium pour une presence digitale complete et sur mesure.",
     features: [
-      "Site web complet avec fonctionnalites avancees",
-      "Strategie de branding personnalisee",
-      "Animation et interactivite via Framer Motion",
-      "Suivi et maintenance (3 mois)",
-      "Service de drone FPV inclus",
-      "Production video professionnelle",
+      "Site web e-commerce complet",
+      "Design exclusif",
+      "SEO premium",
+      "Integration CRM",
+      "Formation utilisateur",
+      "Support premium 24/7",
+      "Option drone FPV incluse",
     ],
   },
 ];
@@ -81,10 +84,11 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <ServicesSection />
-      <PromoVideoSection />
-      <PacksSection />
+      <ServicesSection services={services} />
+      <DroneCarousel />
+      <PacksSection packs={packs} />
       <ProjectsSection />
+      <PromoVideoSection />
       <TeamSection />
       <TestimonialsSection />
       <NewsletterSection />
