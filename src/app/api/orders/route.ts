@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
-import { sendNotificationEmail } from '@/lib/email';
+import { sendOrderConfirmationEmail, sendOrderNotification } from '@/lib/email';
 
 export async function GET(request: Request) {
   try {
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     });
 
     // Envoyer une notification par email
-    await sendNotificationEmail({
+    await sendOrderNotification({
       id: order.id,
       packName,
       customerName: customerDetails.name,
