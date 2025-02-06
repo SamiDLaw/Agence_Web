@@ -5,10 +5,9 @@ import { useRouter } from 'next/navigation';
 
 interface OrderFormProps {
   selectedPack: {
-    id: number;
     name: string;
     price: string;
-  } | null;
+  };
   onClose: () => void;
 }
 
@@ -34,8 +33,7 @@ export function OrderForm({ selectedPack, onClose }: OrderFormProps) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          packId: selectedPack?.id,
-          packName: selectedPack?.name,
+          packName: selectedPack.name,
           customerDetails: {
             name: formData.name,
             email: formData.email,
