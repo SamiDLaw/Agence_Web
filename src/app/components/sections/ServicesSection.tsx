@@ -1,6 +1,14 @@
 import { services } from "@/app/data/services";
 
-export function ServicesSection() {
+interface ServicesSectionProps {
+  services: {
+    title: string;
+    description: string;
+    icon: string;
+  }[];
+}
+
+export function ServicesSection({ services }: ServicesSectionProps) {
   return (
     <section id="services" className="py-20 bg-primary/50">
       <div className="container-custom">
