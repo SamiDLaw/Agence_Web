@@ -36,10 +36,12 @@ const services = [
   },
 ];
 
-const packs = [
+const webPacks = [
   {
+    id: 1,
     name: "Room Visibilite",
     price: "450€",
+    subtitle: "Présence web essentielle",
     description: "Pour les petites entreprises ou independants souhaitant une presence web rapide et efficace.",
     features: [
       "Site web one-page professionnel",
@@ -51,31 +53,116 @@ const packs = [
     ],
   },
   {
-    name: "Shambles",
-    price: "850€",
-    description: "Solution complete pour les entreprises en croissance necessitant une presence web plus elaboree.",
+    id: 2,
+    name: "Suite Business",
+    price: "950€",
+    subtitle: "Solution complète",
+    description: "Une solution complete pour les entreprises souhaitant une presence web professionnelle et performante.",
     features: [
-      "Site web multi-pages professionnel",
+      "Site web multi-pages",
       "Design personnalise",
       "Optimisation SEO avancee",
-      "Integration reseaux sociaux",
-      "Systeme de blog integre",
-      "Analytics et rapports mensuels",
-      "Option drone FPV disponible (+350€)",
+      "Integration CMS",
+      "Systeme de blog",
+      "Support technique (3 mois)",
+      "Option drone FPV disponible (+300€)",
+    ],
+    popular: true
+  },
+  {
+    id: 3,
+    name: "E-commerce Start",
+    price: "1450€",
+    subtitle: "Boutique en ligne",
+    description: "Lancez votre boutique en ligne avec une solution e-commerce complete et performante.",
+    features: [
+      "Site e-commerce complet",
+      "Jusqu'a 100 produits",
+      "Integration paiement",
+      "Gestion des stocks",
+      "Panel administration",
+      "Formation utilisation",
+      "Option drone FPV disponible (+250€)",
     ],
   },
   {
-    name: "Lawgency",
-    price: "1450€",
-    description: "Pack premium pour une presence digitale complete et sur mesure.",
+    id: 4,
+    name: "Enterprise Plus",
+    price: "Sur mesure",
+    subtitle: "Solution personnalisée",
+    description: "Une solution sur mesure pour les grandes entreprises avec des besoins specifiques.",
     features: [
-      "Site web e-commerce complet",
-      "Design exclusif",
-      "SEO premium",
-      "Integration CRM",
-      "Formation utilisateur",
-      "Support premium 24/7",
+      "Developpement sur mesure",
+      "Architecture personnalisee",
+      "Integration API",
+      "Securite renforcee",
+      "Support premium",
+      "Formation equipe",
       "Option drone FPV incluse",
+    ],
+  },
+];
+
+const mediaPacks = [
+  {
+    id: 5,
+    name: "Video Corporate",
+    price: "750€",
+    subtitle: "Présentation d'entreprise",
+    description: "Une video professionnelle pour presenter votre entreprise et vos services.",
+    features: [
+      "Video HD 2-3 minutes",
+      "Tournage 1/2 journee",
+      "Montage professionnel",
+      "Musique libre de droits",
+      "2 revisions incluses",
+      "Option drone FPV (+200€)",
+    ],
+  },
+  {
+    id: 6,
+    name: "Pack Event",
+    price: "950€",
+    subtitle: "Couverture événementielle",
+    description: "Capturez vos evenements avec une equipe video professionnelle.",
+    features: [
+      "Couverture complete",
+      "Montage multi-cameras",
+      "Interview participants",
+      "Resume video 5 min",
+      "Photos evenement",
+      "Option drone FPV (+300€)",
+    ],
+    popular: true
+  },
+  {
+    id: 7,
+    name: "Serie Web",
+    price: "1950€",
+    subtitle: "Contenu régulier",
+    description: "Production de contenu video regulier pour vos reseaux sociaux.",
+    features: [
+      "4 videos par mois",
+      "Format optimise social",
+      "Scenario sur mesure",
+      "Montage dynamique",
+      "Sous-titres inclus",
+      "Option drone FPV (+200€/video)",
+    ],
+  },
+  {
+    id: 8,
+    name: "Production Premium",
+    price: "Sur mesure",
+    subtitle: "Production complète",
+    description: "Production video haut de gamme pour vos projets les plus ambitieux.",
+    features: [
+      "Equipe complete",
+      "Materiel cinema",
+      "Drone FPV inclus",
+      "Post-production avancee",
+      "Etalonnage pro",
+      "Distribution possible",
     ],
   },
 ];
@@ -86,7 +173,7 @@ export default function Home() {
       <HeroSection />
       <ServicesSection services={services} />
       <DroneCarousel />
-      <PacksSection packs={packs} />
+      <PacksSection webPacks={webPacks} mediaPacks={mediaPacks} />
       <ProjectsSection />
       <PromoVideoSection />
       <TeamSection />
