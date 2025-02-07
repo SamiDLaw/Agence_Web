@@ -39,7 +39,7 @@ const services = [
 const webPacks = [
   {
     id: 1,
-    name: "Room Visibilite",
+    name: "Shamble Visibilité",
     price: "450€",
     subtitle: "Présence web essentielle",
     description: "Pour les petites entreprises ou independants souhaitant une presence web rapide et efficace.",
@@ -54,7 +54,7 @@ const webPacks = [
   },
   {
     id: 2,
-    name: "Suite Business",
+    name: "Room Business",
     price: "950€",
     subtitle: "Solution complète",
     description: "Une solution complete pour les entreprises souhaitant une presence web professionnelle et performante.",
@@ -71,7 +71,7 @@ const webPacks = [
   },
   {
     id: 3,
-    name: "E-commerce Start",
+    name: "Ope-Ope",
     price: "1450€",
     subtitle: "Boutique en ligne",
     description: "Lancez votre boutique en ligne avec une solution e-commerce complete et performante.",
