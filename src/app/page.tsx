@@ -172,8 +172,8 @@ export default function Home() {
     <main>
       <HeroSection />
       <ServicesSection services={services} />
-      <DroneCarousel />
       <PacksSection webPacks={webPacks} mediaPacks={mediaPacks} />
+      <DroneCarousel />
       <ProjectsSection />
       <PromoVideoSection />
       <TeamSection />
