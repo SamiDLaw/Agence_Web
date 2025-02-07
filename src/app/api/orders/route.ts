@@ -1,97 +1,75 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/auth';
-import { prisma } from '@/lib/prisma';
-import { sendOrderConfirmationEmail, sendOrderNotification } from '@/lib/email';
-
-export async function GET(request: Request) {
-  try {
-    const session = await auth();
-    if (!session) {
-      return new NextResponse('Unauthorized', { status: 401 });
-    }
-
-    const { searchParams } = new URL(request.url);
-    const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : 10;
-
-    // Données simulées pour l'exemple
-    const mockOrders = [
-      {
-        id: '1',
-        customerName: 'Jean Dupont',
-        service: 'Site Web E-commerce',
-        status: 'En cours',
-        amount: 2500
-      },
-      {
-        id: '2',
-        customerName: 'Marie Martin',
-        service: 'Application Mobile',
-        status: 'Terminé',
-        amount: 3500
-      },
-      {
-        id: '3',
-        customerName: 'Pierre Durand',
-        service: 'SEO Optimization',
-        status: 'En attente',
-        amount: 800
-      },
-      {
-        id: '4',
-        customerName: 'Sophie Bernard',
-        service: 'Refonte Site Web',
-        status: 'En cours',
-        amount: 1500
-      },
-      {
-        id: '5',
-        customerName: 'Lucas Petit',
-        service: 'Marketing Digital',
-        status: 'Terminé',
-        amount: 1200
-      }
-    ].slice(0, limit);
-
-    return NextResponse.json(mockOrders);
-  } catch (error) {
-    console.error('Erreur lors de la récupération des commandes:', error);
-    return new NextResponse('Internal Server Error', { status: 500 });
-  }
-}
+import { sendOrderNotification } from '@/lib/email';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { packId, packName, customerDetails, pack } = body;
+    console.log('Données reçues:', body);
 
-    // Créer la commande dans la base de données
-    const order = await prisma.order.create({
-      data: {
-        packId,
-        status: 'PENDING',
+    const { packName, customerDetails, pack } = body;
+
+    if (!packName || !customerDetails || !pack) {
+      return NextResponse.json(
+        { success: false, message: 'Données incomplètes' },
+        { status: 400 }
+      );
+    }
+
+    const orderId = Math.random().toString(36).substring(7);
+
+    try {
+      await sendOrderNotification({
+        id: orderId,
+        packName,
         customerName: customerDetails.name,
         customerEmail: customerDetails.email,
         customerPhone: customerDetails.phone,
-        customerCompany: customerDetails.company,
-        message: customerDetails.message,
-      },
-    });
+        customerCompany: customerDetails.company || undefined,
+        message: customerDetails.message || undefined,
+        amount: pack.price,
+      });
 
-    // Envoyer une notification par email
-    await sendOrderNotification({
-      id: order.id,
-      packName,
-      customerName: customerDetails.name,
-      customerEmail: customerDetails.email,
-      customerPhone: customerDetails.phone,
-      customerCompany: customerDetails.company || undefined,
-      message: customerDetails.message || undefined,
-      amount: pack.price,
-    });
-
-    return NextResponse.json(order);
+      return new NextResponse(
+        JSON.stringify({
+          success: true,
+          orderId,
+          message: "Commande reçue avec succès"
+        }),
+        {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+    } catch (emailError) {
+      console.error('Erreur email:', emailError);
+      return new NextResponse(
+        JSON.stringify({
+          success: false,
+          message: 'Erreur lors de l\'envoi de l\'email'
+        }),
+        {
+          status: 500,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+    }
   } catch (error) {
-    console.error('Error creating order:', error);
-    return new NextResponse('Internal Server Error', { status: 500 });
+    console.error('Erreur générale:', error);
+    return new NextResponse(
+      JSON.stringify({
+        success: false,
+        message: 'Erreur lors du traitement de la commande'
+      }),
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
   }
 }
