@@ -1,50 +1,9 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
-
-const droneImages = [
-  {
-    src: '/images/drone-1.jpg',
-    alt: 'Drone FPV en vol',
-    description: 'Capturez des images aériennes spectaculaires avec notre drone FPV'
-  },
-  {
-    src: '/images/drone-2.jpg',
-    alt: 'Drone FPV en action',
-    description: 'Des angles de vue uniques pour vos projets'
-  },
-  {
-    src: '/images/drone-3.jpg',
-    alt: 'Drone FPV racing',
-    description: 'Une expérience immersive pour des vidéos dynamiques'
-  }
-]
+import { useState } from 'react'
 
 export function DroneCarousel() {
   const [isOpen, setIsOpen] = useState(false);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' })
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev()
-  }, [emblaApi])
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext()
-  }, [emblaApi])
-
-  useEffect(() => {
-    if (emblaApi) {
-      const autoplay = setInterval(() => {
-        emblaApi.scrollNext()
-      }, 4000)
-
-      return () => clearInterval(autoplay)
-    }
-  }, [emblaApi])
 
   return (
     <>
@@ -79,55 +38,28 @@ export function DroneCarousel() {
         </div>
       </div>
 
-      {/* Modal du Carousel */}
+      {/* Modal de la vidéo */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-4xl w-full p-6 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90">
+          <div className="w-full max-w-5xl relative">
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-slate-500 hover:text-slate-700 dark:text-slate-400 
-                       dark:hover:text-slate-200"
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 
+                       transition-colors duration-200"
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
-            <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">
-              Nos réalisations en Drone FPV
-            </h3>
-
-            <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex">
-                {droneImages.map((image, index) => (
-                  <div key={index} className="flex-[0_0_100%] min-w-0 relative aspect-video rounded-xl overflow-hidden shadow-xl">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      className="object-cover"
-                    />
-                    <p className="text-center mt-4 text-blue-100">{image.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex justify-center gap-4 mt-4">
-              <button
-                onClick={scrollPrev}
-                className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 
-                         transition-colors duration-200"
-              >
-                <ChevronLeftIcon className="h-6 w-6" />
-              </button>
-              <button
-                onClick={scrollNext}
-                className="p-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 
-                         transition-colors duration-200"
-              >
-                <ChevronRightIcon className="h-6 w-6" />
-              </button>
+            <div className="relative pt-[56.25%] rounded-xl overflow-hidden bg-black">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/8EsjNUIgZVE?autoplay=1&mute=1&loop=1&playlist=8EsjNUIgZVE"
+                title="Drone FPV Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
         </div>
