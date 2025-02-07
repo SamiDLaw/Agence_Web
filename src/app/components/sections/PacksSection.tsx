@@ -1,8 +1,8 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import { CheckIcon } from '@heroicons/react/20/solid';
-import { OrderForm } from '../OrderForm';
+import { useState } from 'react'
+import { CheckIcon } from '@heroicons/react/20/solid'
+import { OrderForm } from '../OrderForm'
 
 interface Pack {
   id: number;
@@ -28,8 +28,15 @@ export function PacksSection({ webPacks, mediaPacks }: PacksSectionProps) {
     setIsModalOpen(true);
   };
 
+  const gradients = [
+    'bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50',
+    'bg-gradient-to-br from-purple-50 via-purple-100 to-purple-50',
+    'bg-gradient-to-br from-indigo-50 via-indigo-100 to-indigo-50',
+    'bg-gradient-to-br from-sky-50 via-sky-100 to-sky-50'
+  ];
+
   return (
-    <div className="py-24 bg-white">
+    <div className="py-24 bg-gradient-to-b from-slate-50 to-white">
       <div className="container-custom">
         {/* Services Web */}
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -43,17 +50,15 @@ export function PacksSection({ webPacks, mediaPacks }: PacksSectionProps) {
             Choisissez le pack qui correspond le mieux à vos besoins et à votre budget.
           </p>
 
-          <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+          <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
             {webPacks.map((pack, packIdx) => (
               <div
                 key={pack.id}
-                className={`flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 ${
-                  pack.popular
-                    ? 'lg:z-10 lg:rounded-b-none'
-                    : packIdx === webPacks.length - 1
-                    ? 'lg:z-10 lg:rounded-t-none'
-                    : ''
-                }`}
+                className={`relative flex flex-col justify-between rounded-3xl p-8 xl:p-10 
+                          ${gradients[packIdx]} backdrop-blur-sm
+                          shadow-lg hover:shadow-xl transition-all duration-300
+                          ${pack.popular ? 'ring-2 ring-blue-600' : 'ring-1 ring-blue-100'}
+                          hover:scale-[1.02]`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-x-4">
@@ -61,7 +66,7 @@ export function PacksSection({ webPacks, mediaPacks }: PacksSectionProps) {
                       {pack.name}
                     </h3>
                     {pack.popular ? (
-                      <p className="rounded-full bg-blue-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-blue-600">
+                      <p className="rounded-full bg-blue-600 px-2.5 py-1 text-xs font-semibold text-white">
                         Populaire
                       </p>
                     ) : null}
@@ -86,12 +91,11 @@ export function PacksSection({ webPacks, mediaPacks }: PacksSectionProps) {
                 </div>
                 <button
                   onClick={() => handleOrderClick(pack)}
-                  className={`mt-8 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
-                    ${
-                      pack.popular
-                        ? 'bg-blue-600 text-white hover:bg-blue-500 focus-visible:outline-blue-600'
-                        : 'bg-white text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300'
-                    }`}
+                  className={`mt-8 block rounded-xl px-3 py-2.5 text-center text-sm font-semibold leading-6 
+                    ${pack.popular
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20 hover:bg-blue-500'
+                      : 'bg-white/80 text-blue-600 shadow-lg hover:bg-white'} 
+                    transition-all duration-200 backdrop-blur-sm`}
                 >
                   Commander maintenant
                 </button>
@@ -114,17 +118,15 @@ export function PacksSection({ webPacks, mediaPacks }: PacksSectionProps) {
             Des solutions vidéo adaptées à tous vos besoins de communication.
           </p>
 
-          <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+          <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
             {mediaPacks.map((pack, packIdx) => (
               <div
                 key={pack.id}
-                className={`flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10 ${
-                  pack.popular
-                    ? 'lg:z-10 lg:rounded-b-none'
-                    : packIdx === mediaPacks.length - 1
-                    ? 'lg:z-10 lg:rounded-t-none'
-                    : ''
-                }`}
+                className={`relative flex flex-col justify-between rounded-3xl p-8 xl:p-10 
+                          ${gradients[packIdx]} backdrop-blur-sm
+                          shadow-lg hover:shadow-xl transition-all duration-300
+                          ${pack.popular ? 'ring-2 ring-blue-600' : 'ring-1 ring-blue-100'}
+                          hover:scale-[1.02]`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-x-4">
@@ -132,7 +134,7 @@ export function PacksSection({ webPacks, mediaPacks }: PacksSectionProps) {
                       {pack.name}
                     </h3>
                     {pack.popular ? (
-                      <p className="rounded-full bg-blue-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-blue-600">
+                      <p className="rounded-full bg-blue-600 px-2.5 py-1 text-xs font-semibold text-white">
                         Populaire
                       </p>
                     ) : null}
@@ -157,12 +159,11 @@ export function PacksSection({ webPacks, mediaPacks }: PacksSectionProps) {
                 </div>
                 <button
                   onClick={() => handleOrderClick(pack)}
-                  className={`mt-8 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
-                    ${
-                      pack.popular
-                        ? 'bg-blue-600 text-white hover:bg-blue-500 focus-visible:outline-blue-600'
-                        : 'bg-white text-blue-600 ring-1 ring-inset ring-blue-200 hover:ring-blue-300'
-                    }`}
+                  className={`mt-8 block rounded-xl px-3 py-2.5 text-center text-sm font-semibold leading-6 
+                    ${pack.popular
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20 hover:bg-blue-500'
+                      : 'bg-white/80 text-blue-600 shadow-lg hover:bg-white'} 
+                    transition-all duration-200 backdrop-blur-sm`}
                 >
                   Commander maintenant
                 </button>
@@ -174,8 +175,8 @@ export function PacksSection({ webPacks, mediaPacks }: PacksSectionProps) {
 
       {/* Modal de commande */}
       {isModalOpen && selectedPack && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 relative shadow-2xl">
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
@@ -194,5 +195,5 @@ export function PacksSection({ webPacks, mediaPacks }: PacksSectionProps) {
         </div>
       )}
     </div>
-  );
+  )
 }
