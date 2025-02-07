@@ -55,7 +55,7 @@ const webPacks = [
   {
     id: 2,
     name: "Room Business",
-    price: "950€",
+    price: "850€",
     subtitle: "Solution complète",
     description: "Une solution complete pour les entreprises souhaitant une presence web professionnelle et performante.",
     features: [
@@ -71,8 +71,8 @@ const webPacks = [
   },
   {
     id: 3,
-    name: "Ope-Ope",
-    price: "1450€",
+    name: "Ope-Ope Shop",
+    price: "1350€",
     subtitle: "Boutique en ligne",
     description: "Lancez votre boutique en ligne avec une solution e-commerce complete et performante.",
     features: [
