@@ -1,7 +1,7 @@
 export const team = [
   {
     id: 1,
-    name: "Khelladi Sami",
+    name: "Sami",
     role: "Développeur Full-Stack & Designer",
     image: "/images/team/sami.jpg",
     bio: "Développeur full-stack, designer, photographe, expert en communication et pilote de drone FPV",
@@ -13,7 +13,7 @@ export const team = [
   },
   {
     id: 2,
-    name: "Erdem Ozdemir",
+    name: "Erdem",
     role: "Directeur Audiovisuel",
     image: "/images/team/erdem.jpg",
     bio: "Monteur audio-visuel, photographe, caméraman, expert en communication et pilote de drone",
