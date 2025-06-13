@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#DB2777;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BE185D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#grad2)" />
+  <g fill="none" stroke="white" stroke-width="8" opacity="0.9" transform="translate(300, 200) scale(5)">
+    <path d="M3 9h18M9 21V9"></path>
+    <path d="M14 4l6 6-6 6"></path>
+  </g>
+  <text x="400" y="500" font-family="Arial, sans-serif" font-size="48" fill="white" text-anchor="middle" font-weight="bold">UI/UX Design</text>
+</svg>

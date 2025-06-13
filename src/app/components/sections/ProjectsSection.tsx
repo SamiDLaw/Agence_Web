@@ -11,7 +11,7 @@ export function ProjectsSection() {
             <article key={project.id} className="group relative overflow-hidden rounded-xl">
               <div className="relative h-64 w-full">
                 <Image
-                  src={project.image}
+                  src={project.thumbnail}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
@@ -22,12 +22,12 @@ export function ProjectsSection() {
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                 <p className="text-sm text-gray-200 mb-3">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
+                  {project.services.map((service) => (
                     <span
-                      key={tech}
+                      key={service}
                       className="text-xs px-2 py-1 rounded-full bg-white/20 backdrop-blur-sm"
                     >
-                      {tech}
+                      {service}
                     </span>
                   ))}
                 </div>
