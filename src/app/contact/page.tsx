@@ -1,3 +1,5 @@
+'use client';
+
 import { NavigationPortfolio } from "../components/portfolio/NavigationPortfolio";
 import { FooterPortfolio } from "../components/portfolio/FooterPortfolio";
 import { ContactSection } from "../components/portfolio/ContactSection";
