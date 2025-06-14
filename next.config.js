@@ -25,19 +25,10 @@ const nextConfig = {
   transpilePackages: ['framer-motion'],
   // Configuration pour le mode production
   swcMinify: true,
-  // Désactiver la génération statique complètement
-  output: 'export',
+  // Configuration pour le mode production
+  output: 'standalone',
   // Optimisations supplémentaires
   reactStrictMode: false,
-  // Désactiver le prérendu des pages problématiques
-  exportPathMap: async function() {
-    return {
-      '/': { page: '/' },
-      // Exclure les pages problématiques du prérendu
-      // '/services': { page: '/services' },
-      // '/contact': { page: '/contact' },
-    }
-  },
   // Options expérimentales
   experimental: {
     // Activer les actions serveur
