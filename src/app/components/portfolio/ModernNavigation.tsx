@@ -264,7 +264,7 @@ export function ModernNavigation() {
             >
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                  <div className="text-sm text-gray-600 dark:text-gray-300">
                     © {new Date().getFullYear()} Lawgency. Tous droits réservés.
                   </div>
                   
@@ -273,7 +273,7 @@ export function ModernNavigation() {
                       href="https://instagram.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                      className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
                       aria-label="Instagram"
                       data-cursor="hover"
                     >
@@ -287,7 +287,7 @@ export function ModernNavigation() {
                       href="https://twitter.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                      className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
                       aria-label="Twitter"
                       data-cursor="hover"
                     >
@@ -299,7 +299,7 @@ export function ModernNavigation() {
                       href="https://linkedin.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+                      className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
                       aria-label="LinkedIn"
                       data-cursor="hover"
                     >

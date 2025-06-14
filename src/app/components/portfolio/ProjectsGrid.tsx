@@ -67,7 +67,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
             className="text-4xl md:text-5xl font-bold mb-4"
             once={true}
           />
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Découvrez nos réalisations dans les domaines de l'agence vidéo, du design web et du community management.
           </p>
         </div>
@@ -124,12 +124,12 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                     />
                   </div>
                   <div className="p-2">
-                    <span className="text-sm text-gray-500 dark:text-gray-400 mb-1 block">{project.category}</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-300 mb-1 block">{project.category}</span>
                     <h3 className="text-xl font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {project.title}
                     </h3>
                     {(project.client || project.year) && (
-                      <p className="text-gray-600 dark:text-gray-400 mt-1">
+                      <p className="text-gray-600 dark:text-gray-300 mt-1">
                         {project.client}{project.client && project.year ? ', ' : ''}{project.year}
                       </p>
                     )}
@@ -155,7 +155,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
               }}
             >
               <h4 className="text-lg font-bold">{hoveredProject.title}</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
                 {hoveredProject.client}{hoveredProject.client && hoveredProject.year ? ', ' : ''}{hoveredProject.year}
               </p>
               <span className="inline-block mt-2 text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">

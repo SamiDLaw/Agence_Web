@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from 'next-themes';
 
 interface CursorState {
   x: number;
@@ -98,6 +99,10 @@ export function CustomCursor() {
     };
   }, []);
   
+  // Détection du thème
+  const { resolvedTheme } = useTheme();
+  const isDarkMode = resolvedTheme === 'dark';
+  
   // Ne pas afficher le curseur personnalisé sur les appareils mobiles ou tactiles
   const [isMobile, setIsMobile] = useState(false);
   
@@ -123,12 +128,12 @@ export function CustomCursor() {
     return null;
   }
   
-  // Déterminer les styles en fonction du type de curseur
+  // Déterminer les styles en fonction du type de curseur et du thème
   const getCursorStyles = () => {
     const baseStyles = {
       scale: 1,
       opacity: isVisible ? 1 : 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      backgroundColor: isDarkMode ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)',
       borderRadius: '50%' as const,
       width: '24px' as const,
       height: '24px' as const,
@@ -139,7 +144,7 @@ export function CustomCursor() {
         return {
           ...baseStyles,
           scale: 1.5,
-          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+          backgroundColor: isDarkMode ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)',
         };
       case 'click':
         return {
@@ -158,7 +163,7 @@ export function CustomCursor() {
         return {
           ...baseStyles,
           scale: 2,
-          backgroundColor: 'rgba(0, 0, 0, 0.6)',
+          backgroundColor: isDarkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)',
         };
       default:
         return baseStyles;
@@ -168,7 +173,7 @@ export function CustomCursor() {
   const getOuterStyles = () => {
     const baseStyles = {
       scale: 1,
-      opacity: isVisible ? 0.2 : 0,
+      opacity: isVisible ? 0.3 : 0,
       borderRadius: '50%' as const,
       width: '40px' as const,
       height: '40px' as const,
@@ -212,7 +217,7 @@ export function CustomCursor() {
       {/* Curseur principal */}
       <motion.div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-6 h-6 rounded-full bg-black dark:bg-white z-50 pointer-events-none mix-blend-difference"
+        className={`fixed top-0 left-0 w-6 h-6 rounded-full z-50 pointer-events-none ${isDarkMode ? 'bg-white' : 'bg-black'}`}
         animate={{
           x: cursor.x - 12,
           y: cursor.y - 12,
@@ -234,7 +239,7 @@ export function CustomCursor() {
       {/* Cercle extérieur */}
       <motion.div
         ref={cursorOuterRef}
-        className="fixed top-0 left-0 w-10 h-10 rounded-full border border-black dark:border-white z-50 pointer-events-none mix-blend-difference"
+        className={`fixed top-0 left-0 w-10 h-10 rounded-full border z-50 pointer-events-none ${isDarkMode ? 'border-white' : 'border-black'}`}
         animate={{
           x: cursor.x - 20,
           y: cursor.y - 20,

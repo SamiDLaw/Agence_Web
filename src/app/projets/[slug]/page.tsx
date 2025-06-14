@@ -53,7 +53,7 @@ export default function ProjectPage({ params }: Props) {
     results: `Le résultat final a permis à ${project.client} d'atteindre ses objectifs de communication et de renforcer sa présence dans son secteur. Le projet a été très bien reçu par le public cible.`,
     coverImage: project.thumbnail || '/images/projects/default-cover.jpg',
     gallery: project.images || [],
-    video: project.videoUrl,
+    video: project.videoUrl || '',
     technologies: project.services,
     nextProject: nextProject ? {
       id: nextProject.id,

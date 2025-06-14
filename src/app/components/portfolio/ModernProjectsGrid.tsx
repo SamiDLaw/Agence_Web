@@ -112,7 +112,7 @@ export function ModernProjectsGrid({ projects }: ProjectsGridProps) {
           <h2 className="text-6xl md:text-8xl font-bold text-black/10 dark:text-white/10 uppercase tracking-tighter">
             Projets
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold absolute top-1/2 left-0 transform -translate-y-1/2">
+          <h3 className="text-4xl md:text-5xl font-bold absolute top-1/2 left-0 transform -translate-y-1/2 text-black dark:text-white">
             Nos réalisations
           </h3>
         </motion.div>
@@ -194,7 +194,7 @@ export function ModernProjectsGrid({ projects }: ProjectsGridProps) {
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-primary transition-colors duration-300">
                         {project.title}
                       </h3>
                       <motion.div
@@ -208,7 +208,7 @@ export function ModernProjectsGrid({ projects }: ProjectsGridProps) {
                         </svg>
                       </motion.div>
                     </div>
-                    <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 space-x-4">
+                    <div className="flex items-center text-sm text-gray-700 dark:text-gray-100 space-x-4">
                       <span>{project.category}</span>
                       {project.client && (
                         <>
@@ -224,7 +224,7 @@ export function ModernProjectsGrid({ projects }: ProjectsGridProps) {
                       )}
                     </div>
                     {project.description && (
-                      <p className="text-gray-600 dark:text-gray-400 line-clamp-2 mt-2">
+                      <p className="text-gray-800 dark:text-gray-100 line-clamp-2 mt-2">
                         {project.description}
                       </p>
                     )}
@@ -243,7 +243,7 @@ export function ModernProjectsGrid({ projects }: ProjectsGridProps) {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+            <p className="text-xl text-gray-800 dark:text-gray-100">
               Aucun projet ne correspond à ce filtre pour le moment.
             </p>
             <button 
@@ -262,7 +262,7 @@ export function ModernProjectsGrid({ projects }: ProjectsGridProps) {
         <ScrollReveal>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-              <h3 className="text-3xl md:text-4xl font-bold max-w-md">
+              <h3 className="text-3xl md:text-4xl font-bold max-w-md text-black dark:text-white">
                 Prêt à donner vie à votre prochain projet ?
               </h3>
               <Link 

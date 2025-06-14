@@ -92,10 +92,10 @@ export default function Footer() {
               ✉️ contact@lawgency.fr
             </a>
             <a
-              href="tel:+33600000000"
+              href="tel:+33668236157"
               className="text-text-muted hover:text-accent transition-colors duration-200 block"
             >
-              📞 06 XX XX XX XX
+              📞 +33 6 68 23 61 57
             </a>
           </div>
         </div>

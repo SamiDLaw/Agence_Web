@@ -56,7 +56,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
             className="text-3xl md:text-5xl font-bold mb-6"
             once={true}
           />
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-gray-600 dark:text-gray-300">
             Découvrez nos dernières créations et collaborations avec des marques innovantes.
           </p>
         </motion.div>
@@ -82,9 +82,9 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                     </div>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-500 dark:text-gray-400 mb-1 block">{project.category}</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-300 mb-1 block">{project.category}</span>
                     <h3 className="text-2xl font-bold mb-2 group-hover:underline">{project.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-gray-600 dark:text-gray-300">
                       {project.client}, {project.year}
                     </p>
                   </div>
@@ -136,7 +136,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
           </HorizontalScroll>
           
           {/* Indicateur de défilement */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center text-sm text-gray-500 dark:text-gray-400">
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center text-sm text-gray-500 dark:text-gray-300">
             <span>Scroll</span>
             <svg className="ml-2 w-5 h-5 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />

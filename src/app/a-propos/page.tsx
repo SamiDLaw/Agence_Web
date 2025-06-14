@@ -1,6 +1,6 @@
 import { PortfolioLayout } from "../components/portfolio/PortfolioLayout";
 import { ModernAboutSection } from "../components/portfolio/ModernAboutSection";
-import { ModernServices } from "../components/portfolio/ModernServices";
+import { ModernServicesSimple } from "../components/portfolio/ModernServicesSimple";
 import { MarqueeBanner } from "../components/portfolio/MarqueeBanner";
 import { ScrollReveal } from "../components/portfolio/ScrollReveal";
 import { AnimatedText } from "../components/portfolio/AnimatedText";
@@ -14,36 +14,28 @@ export const metadata: Metadata = {
 
 const teamMembers = [
   {
-    id: "thomas",
-    name: "Thomas Laurent",
-    role: "Directeur Créatif",
-    bio: "Avec plus de 10 ans d'expérience dans l'industrie créative, Thomas dirige notre vision artistique et supervise tous les projets majeurs. Sa passion pour l'innovation et son œil pour les détails ont façonné l'identité visuelle de nombreuses marques prestigieuses.",
+    id: "sami",
+    name: "Khelladi Sami",
+    role: "Responsable Web",
+    bio: "Expert en développement web et en expérience utilisateur, Sami dirige notre département web avec passion et expertise. Sa maîtrise des technologies modernes et son approche centrée sur l'utilisateur permettent de créer des sites web performants, esthétiques et parfaitement adaptés aux besoins de nos clients.",
     image: "/images/team/team-1.jpg",
-    skills: ["Direction artistique", "Stratégie de marque", "Production vidéo"]
+    skills: ["Développement web", "UI/UX", "Next.js/React"]
   },
   {
-    id: "sophie",
-    name: "Sophie Moreau",
-    role: "Directrice Vidéo",
-    bio: "Spécialiste de la narration visuelle, Sophie transforme les idées en histoires captivantes à travers ses productions vidéo innovantes. Son approche cinématographique et sa maîtrise technique lui permettent de créer des contenus qui résonnent avec les audiences.",
+    id: "eren",
+    name: "Ozdemir Eren",
+    role: "Responsable Vidéo",
+    bio: "Créateur visuel talentueux, Eren transforme les concepts en récits visuels captivants. Sa vision artistique unique et sa maîtrise technique en production vidéo lui permettent de réaliser des contenus impactants qui racontent des histoires mémorables et renforcent l'identité de marque de nos clients.",
     image: "/images/team/team-2.jpg",
-    skills: ["Réalisation", "Montage", "Direction photo"]
+    skills: ["Production vidéo", "Montage", "Direction artistique"]
   },
   {
-    id: "marc",
-    name: "Marc Dubois",
-    role: "Lead Développeur",
-    bio: "Expert en technologies web modernes, Marc crée des expériences numériques fluides et performantes pour nos clients les plus exigeants. Sa connaissance approfondie des frameworks front-end et son souci de l'accessibilité garantissent des sites web à la fois esthétiques et fonctionnels.",
+    id: "coralie",
+    name: "Coralie Mates",
+    role: "Responsable Communication",
+    bio: "Stratège en communication digitale, Coralie excelle dans l'élaboration de stratégies de contenu engageantes et la gestion des communautés en ligne. Son expertise en marketing digital et sa compréhension approfondie des tendances sociales permettent à nos clients de développer une présence en ligne authentique et performante.",
     image: "/images/team/team-3.jpg",
-    skills: ["React/Next.js", "UI/UX", "Animations web"]
-  },
-  {
-    id: "julie",
-    name: "Julie Leroy",
-    role: "Community Manager",
-    bio: "Passionnée par les réseaux sociaux et la communication digitale, Julie développe des stratégies de contenu qui engagent et convertissent. Son approche analytique et sa créativité lui permettent d'optimiser la présence en ligne de nos clients et de bâtir des communautés fidèles.",
-    image: "/images/team/team-4.jpg",
-    skills: ["Stratégie sociale", "Création de contenu", "Analyse de données"]
+    skills: ["Stratégie digitale", "Community management", "Marketing de contenu"]
   }
 ];
 
@@ -111,7 +103,7 @@ export default function APropos() {
       />
       
       {/* Section des services */}
-      <ModernServices />
+      <ModernServicesSimple />
       
       {/* Section CTA */}
       <section className="py-32 bg-gradient-to-r from-primary to-primary/70 text-white">

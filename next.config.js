@@ -31,10 +31,7 @@ const nextConfig = {
   reactStrictMode: false,
   // Options expérimentales
   experimental: {
-    // Activer les actions serveur
-    serverActions: true,
-    // Désactiver le pré-rendu pour éviter les erreurs
-    appDir: true,
+    // Packages externes pour les composants serveur
     serverComponentsExternalPackages: ['framer-motion'],
   },
   // Augmenter la taille limite des pages

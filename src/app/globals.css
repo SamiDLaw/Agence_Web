@@ -5,19 +5,27 @@
 :root {
   --background: 255, 255, 255;
   --foreground: 0, 0, 0;
-  --primary: 255, 255, 255;
+  --primary: 59, 130, 246;
   --secondary: 241, 245, 249;
   --accent: 37, 99, 235;
   --accent-light: 59, 130, 246;
+  --text-on-dark: 255, 255, 255;
+  --text-on-light: 15, 23, 42;
+  --card-bg-light: 255, 255, 255;
+  --card-bg-dark: 30, 41, 59;
 }
 
-[data-theme="dark"] {
+.dark {
   --background: 15, 23, 42;
   --foreground: 255, 255, 255;
-  --primary: 15, 23, 42;
+  --primary: 59, 130, 246;
   --secondary: 30, 41, 59;
-  --accent: 59, 130, 246;
+  --accent: 96, 165, 250;
   --accent-light: 96, 165, 250;
+  --text-on-dark: 255, 255, 255;
+  --text-on-light: 15, 23, 42;
+  --card-bg-light: 30, 41, 59;
+  --card-bg-dark: 15, 23, 42;
 }
 
 body {

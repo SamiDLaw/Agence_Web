@@ -15,6 +15,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "uludag-restaurant",
+    title: "Restaurant Turc News Uludag",
+    client: "Uludag",
+    description: "Campagne visuelle et vidéo pour le restaurant turc News Uludag à Marignane, mettant en valeur l'ambiance authentique, les plats traditionnels et l'expérience culinaire unique offerte par l'établissement.",
+    thumbnail: "/images/PKLS9028.png",
+    category: "Vidéo & Photo",
+    slug: "uludag-restaurant",
+    year: 2025,
+    services: ["Production vidéo", "Photographie culinaire", "Direction artistique"],
+    videoUrl: "/videos/uludag-video-1.mp4",
+    images: [
+      "/images/PKLS9028.png",
+      "/images/PKLS9076.png",
+      "/images/PKLS9066.png",
+      "/images/PKLS9073.png"
+    ],
+    featured: true
+  },
+  {
     id: "chanel-huile-or",
     title: "Chanel L'Huile D'Or",
     client: "Chanel",

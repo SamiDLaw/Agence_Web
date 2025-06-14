@@ -16,12 +16,23 @@ interface ModernHomepageProps {
 export function ModernHomepage({ featuredProjects, allProjects }: ModernHomepageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentService, setCurrentService] = useState<number>(0);
-  const services = [
+  // Interface pour les services
+  interface Service {
+    id: string;
+    title: string;
+    description: string;
+    image: string;
+    videoUrl?: string;
+    icon: React.ReactNode;
+  }
+
+  const services: Service[] = [
     {
       id: 'video',
       title: 'Agence Vidéo',
       description: 'Production de contenu vidéo de haute qualité pour vos campagnes marketing, réseaux sociaux et événements.',
-      image: '/images/services/video-production.jpg',
+      image: '/images/PKLS9028.png',
+      videoUrl: '/videos/uludag-video-2.mp4',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <polygon points="23 7 16 12 23 17 23 7"></polygon>
@@ -84,25 +95,40 @@ export function ModernHomepage({ featuredProjects, allProjects }: ModernHomepage
           className="absolute inset-0 z-0"
           style={{ opacity: headerOpacity, y: headerY }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20 z-10" />
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={services[currentService].id}
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.05 }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="w-full h-full relative"
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20 z-10" data-component-name="ModernHomepage" />
+          
+          {/* Vidéo d'arrière-plan fixe */}
+          <div className="absolute inset-0 z-0">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
             >
-              <Image 
-                src={services[currentService].image} 
-                alt={services[currentService].title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </motion.div>
-          </AnimatePresence>
+              <source src="/videos/12568306_3840_2160_30fps.mp4" type="video/mp4" />
+              Votre navigateur ne prend pas en charge la vidéo HTML5.
+            </video>
+          </div>
+          
+          {/* Animation des services (masquée mais maintenue pour la logique) */}
+          <div className="hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={services[currentService].id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0 }}
+                exit={{ opacity: 0 }}
+                className="hidden"
+              >
+                {services[currentService].videoUrl ? (
+                  <div className="hidden"></div>
+                ) : (
+                  <div className="hidden"></div>
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </motion.div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

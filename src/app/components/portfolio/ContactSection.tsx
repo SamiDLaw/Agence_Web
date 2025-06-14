@@ -47,7 +47,7 @@ export function ContactSection() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8">Contactez-nous</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
               Vous avez un projet en tête ? Nous serions ravis d'en discuter avec vous et de voir comment nous pouvons vous aider à le concrétiser.
             </p>
             
@@ -61,16 +61,16 @@ export function ContactSection() {
               
               <div>
                 <h3 className="text-xl font-medium mb-2">Téléphone</h3>
-                <a href="tel:+33123456789" className="text-blue-600 dark:text-blue-400 hover:underline">
-                  +33 1 23 45 67 89
+                <a href="tel:+33668236157" className="text-blue-600 dark:text-blue-400 hover:underline">
+                  +33 6 68 23 61 57
                 </a>
               </div>
               
               <div>
                 <h3 className="text-xl font-medium mb-2">Adresse</h3>
-                <address className="not-italic text-gray-600 dark:text-gray-400">
-                  Paris, France<br />
-                  75001
+                <address className="not-italic text-gray-600 dark:text-gray-300">
+                  7 Rue d'Italie<br />
+                  13001 Marseille, France
                 </address>
               </div>
             </div>

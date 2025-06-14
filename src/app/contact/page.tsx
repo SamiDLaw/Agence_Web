@@ -46,11 +46,11 @@ export default function Contact() {
             {[
               {
                 title: "Adresse",
-                info: "123 Avenue des Arts\nParis, 75001\nFrance"
+                info: "7 Rue d'Italie\n13001 Marseille\nFrance"
               },
               {
                 title: "Contact",
-                info: "hello@lawgency.fr\n+33 1 23 45 67 89"
+                info: "info@lawgency.fr\n+33 1 23 45 67 89"
               },
               {
                 title: "Horaires",

@@ -133,7 +133,7 @@ export function OrderForm({ selectedPack, onClose }: OrderFormProps) {
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-slate-800 dark:text-white"
-                placeholder="06 12 34 56 78"
+                placeholder="06 68 23 61 57"
                 disabled={isSubmitting}
               />
             </div>

@@ -237,7 +237,7 @@ export function ModernProjectDetail({ project }: ProjectDetailProps) {
                     <span className="relative z-10">Le challenge</span>
                     <span className="absolute bottom-0 left-0 w-12 h-1 bg-primary"></span>
                   </h2>
-                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <p className="text-lg text-gray-800 dark:text-gray-100 leading-relaxed">
                     {project.challenge}
                   </p>
                 </ScrollReveal>
@@ -267,7 +267,7 @@ export function ModernProjectDetail({ project }: ProjectDetailProps) {
                     <span className="relative z-10">Notre solution</span>
                     <span className="absolute bottom-0 left-0 w-12 h-1 bg-primary"></span>
                   </h2>
-                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <p className="text-lg text-gray-800 dark:text-gray-100 leading-relaxed">
                     {project.solution}
                   </p>
                 </ScrollReveal>
@@ -314,7 +314,7 @@ export function ModernProjectDetail({ project }: ProjectDetailProps) {
                     <span className="relative z-10">Résultats</span>
                     <span className="absolute bottom-0 left-0 w-12 h-1 bg-primary"></span>
                   </h2>
-                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <p className="text-lg text-gray-800 dark:text-gray-100 leading-relaxed">
                     {project.results}
                   </p>
                 </ScrollReveal>

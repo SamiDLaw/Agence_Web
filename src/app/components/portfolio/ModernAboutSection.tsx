@@ -94,7 +94,7 @@ export function ModernAboutSection({
             className="text-4xl md:text-5xl font-bold mb-6"
             once={true}
           />
-          <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-gray-800 dark:text-gray-100 max-w-3xl mx-auto">
             {description}
           </p>
         </ScrollReveal>
@@ -151,7 +151,7 @@ export function ModernAboutSection({
                 >
                   <span className="text-4xl mb-4 block" aria-hidden="true">{value.icon}</span>
                   <h4 className="text-xl font-bold mb-2">{value.title}</h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  <p className="text-gray-800 dark:text-gray-100 text-sm">
                     {value.description}
                   </p>
                 </motion.div>
@@ -182,6 +182,7 @@ export function ModernAboutSection({
                       alt={member.name}
                       className="w-full h-full"
                       hoverEffect="zoom"
+                      objectPosition={member.id === "sami" ? "center top" : member.id === "eren" ? "center 30%" : "center 20%"}
                     />
                   </div>
                   <h4 className="text-xl font-bold">{member.name}</h4>
@@ -235,7 +236,7 @@ export function ModernAboutSection({
                     <h3 className="text-2xl font-bold mb-1">{selectedMember.name}</h3>
                     <p className="text-blue-600 dark:text-blue-400 mb-4">{selectedMember.role}</p>
                     
-                    <p className="text-gray-700 dark:text-gray-300 mb-6">
+                    <p className="text-gray-800 dark:text-gray-100 mb-6">
                       {selectedMember.bio}
                     </p>
                     

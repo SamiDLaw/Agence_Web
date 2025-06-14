@@ -11,6 +11,7 @@ interface HoverImageProps {
   height?: number;
   className?: string;
   hoverEffect?: 'zoom' | 'tilt' | 'reveal' | 'blur';
+  objectPosition?: string;
 }
 
 export function HoverImage({
@@ -19,7 +20,8 @@ export function HoverImage({
   width = 500,
   height = 300,
   className = '',
-  hoverEffect = 'zoom'
+  hoverEffect = 'zoom',
+  objectPosition = 'center'
 }: HoverImageProps) {
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -93,6 +95,7 @@ export function HoverImage({
             alt={alt}
             fill
             className="object-cover"
+            style={{ objectPosition }}
             sizes={`(max-width: 768px) 100vw, ${width}px`}
           />
         ) : (

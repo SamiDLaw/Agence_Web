@@ -86,13 +86,13 @@ export const TestimonialsSection = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-bold">{testimonial.name}</h3>
-                        <p className="text-gray-600 dark:text-gray-400">
+                        <p className="text-gray-600 dark:text-gray-300">
                           {testimonial.role}, {testimonial.company}
                         </p>
                       </div>
                     </div>
                     
-                    <p className="text-lg italic text-gray-700 dark:text-gray-300 mb-4">
+                    <p className="text-lg italic text-gray-700 dark:text-gray-200 mb-4">
                       "{testimonial.content}"
                     </p>
                   </div>

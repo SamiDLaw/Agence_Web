@@ -33,7 +33,7 @@ export function ModernServicesSection({ services, className = '' }: ModernServic
             className="text-4xl md:text-5xl font-bold mb-4"
             once={true}
           />
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Découvrez notre expertise en agence vidéo, design web et community management pour donner vie à vos projets.
           </p>
         </ScrollReveal>
