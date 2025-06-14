@@ -12,11 +12,6 @@ const metadata = {
   description: "Découvrez nos services de design, vidéo, web et community management.",
 };
 
-// Cette fonction indique à Next.js de ne pas générer cette page statiquement
-export function generateStaticParams() {
-  return [];
-}
-
 const services = [
   {
     title: "Agence Vidéo",

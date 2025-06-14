@@ -12,11 +12,6 @@ const metadata = {
   description: "Contactez notre agence créative pour discuter de votre projet.",
 };
 
-// Cette fonction indique à Next.js de ne pas générer cette page statiquement
-export function generateStaticParams() {
-  return [];
-}
-
 export default function Contact() {
   return (
     <main className="bg-white dark:bg-black text-black dark:text-white pt-20">
