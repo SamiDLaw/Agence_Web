@@ -1,0 +1,9 @@
+# Ignorer les fichiers qui peuvent causer des problèmes lors du déploiement
+.next
+node_modules
+npm-debug.log
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
