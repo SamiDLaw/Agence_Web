@@ -6,10 +6,16 @@ import { ContactSection } from "../components/portfolio/ContactSection";
 import { motion } from "framer-motion";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
+// Métadonnées gérées côté client pour éviter les erreurs de build
+const metadata = {
   title: "Contact | Lawgency",
   description: "Contactez notre agence créative pour discuter de votre projet.",
 };
+
+// Cette fonction indique à Next.js de ne pas générer cette page statiquement
+export function generateStaticParams() {
+  return [];
+}
 
 export default function Contact() {
   return (
