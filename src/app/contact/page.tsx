@@ -96,8 +96,8 @@ export default function Contact() {
           
           <div className="flex justify-center space-x-6">
             {[
-              { name: "Instagram", url: "https://instagram.com" },
-              { name: "LinkedIn", url: "https://linkedin.com" }
+              { name: "Instagram", url: "https://www.instagram.com/lawgency_/" },
+              { name: "LinkedIn", url: "https://www.linkedin.com/in/lawgency-marseille-4871a0348/" }
             ].map((social, index) => (
               <motion.a
                 key={social.name}

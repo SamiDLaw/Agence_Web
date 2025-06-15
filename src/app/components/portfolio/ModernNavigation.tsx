@@ -280,7 +280,7 @@ export function ModernNavigation() {
                   
                   <div className="flex space-x-4">
                     <a 
-                      href="https://instagram.com" 
+                      href="https://www.instagram.com/lawgency_/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"

@@ -84,10 +84,10 @@ export function FooterPortfolio() {
             </p>
           </div>
           <div className="flex space-x-4 sm:space-x-6">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+            <a href="https://www.instagram.com/lawgency_/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
               Instagram
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+            <a href="https://www.linkedin.com/in/lawgency-marseille-4871a0348/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
               LinkedIn
             </a>
 
