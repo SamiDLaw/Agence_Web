@@ -32,7 +32,7 @@ export function ModernHomepage({ featuredProjects, allProjects }: ModernHomepage
       title: 'Agence Vidéo',
       description: 'Production de contenu vidéo de haute qualité pour vos campagnes marketing, réseaux sociaux et événements.',
       image: '/images/PKLS9028.png',
-      videoUrl: '/videos/uludag-video-2.mp4',
+      videoUrl: 'https://res.cloudinary.com/dckyksspe/video/upload/v1749980864/lawgency/uludag-video-2.mp4',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <polygon points="23 7 16 12 23 17 23 7"></polygon>

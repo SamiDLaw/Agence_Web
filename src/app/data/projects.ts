@@ -24,7 +24,7 @@ export const projects: Project[] = [
     slug: "uludag-restaurant",
     year: 2025,
     services: ["Production vidéo", "Photographie culinaire", "Direction artistique"],
-    videoUrl: "/videos/uludag-video-1.mp4",
+    videoUrl: "https://res.cloudinary.com/dckyksspe/video/upload/v1749980736/lawgency/uludag-video-1.mp4",
     images: [
       "/images/PKLS9028.png",
       "/images/PKLS9076.png",
