@@ -120,11 +120,15 @@ export function CustomCursor() {
     };
   }, []);
   
-  if (isMobile) {
-    // Restaurer le curseur par défaut sur mobile
-    useEffect(() => {
+  // Gérer le curseur sur mobile et desktop dans un seul useEffect
+  useEffect(() => {
+    if (isMobile) {
       document.body.style.cursor = '';
-    }, []);
+    }
+  }, [isMobile]);
+  
+  // Ne pas afficher le curseur personnalisé sur mobile
+  if (isMobile) {
     return null;
   }
   
