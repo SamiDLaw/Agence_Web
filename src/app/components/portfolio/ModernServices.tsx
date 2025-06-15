@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ScrollReveal } from './ScrollReveal';
+import { getVideoUrl } from '@/app/data/cloudinary-urls';
 
 interface Service {
   id: string;
@@ -257,7 +258,7 @@ export function ModernServices({ className = '' }: ModernServicesProps) {
         'Campagnes publicitaires ciblées'
       ],
       image: '/images/services/community-service.jpg',
-      videoUrl: '/videos/12568306_3840_2160_30fps.mp4',
+      videoUrl: getVideoUrl('/videos/12568306_3840_2160_30fps.mp4', '12568306_3840_2160_30fps'),
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>

@@ -1,3 +1,5 @@
+import { getVideoUrl } from "./cloudinary-urls";
+
 export interface Project {
   id: string;
   title: string;
@@ -61,7 +63,7 @@ export const projects: Project[] = [
     slug: "chanel-n5",
     year: 2024,
     services: ["Animation 3D", "Direction artistique", "Rendu et éclairage", "Post-production"],
-    videoUrl: "/videos/Chanel-N5.mp4",
+    videoUrl: getVideoUrl("/videos/Chanel-N5.mp4", "Chanel-N5"),
     images: [
       "/images/chanel-1.png",
       "/images/chanel-2.png",
@@ -79,7 +81,7 @@ export const projects: Project[] = [
     slug: "nike-sony-a6400",
     year: 2023,
     services: ["Production vidéo", "Direction artistique", "Post-production"],
-    videoUrl: "/videos/Nike_Spec_Ad_Sony_A6400.mp4",
+    videoUrl: getVideoUrl("/videos/Nike_Spec_Ad_Sony_A6400.mp4", "Nike_Spec_Ad_Sony_A6400"),
     images: [
       "/images/photo-nike-1.png",
       "/images/photo-nike-2.png"
@@ -113,7 +115,7 @@ export const projects: Project[] = [
     slug: "damius-tricycle",
     year: 2024,
     services: ["Production vidéo", "Direction artistique", "Post-production"],
-    videoUrl: "/videos/Damius-01.mp4",
+    videoUrl: getVideoUrl("/videos/Damius-01.mp4", "Damius-01"),
     images: [
       "/images/damius/Damius-velo-electrique-3-roues-accessible.jpg",
       "/images/damius/catalogue-tricycle-evasion.jpg"
@@ -130,7 +132,7 @@ export const projects: Project[] = [
     slug: "fc-castellane",
     year: 2024,
     services: ["Reportage vidéo", "Montage", "Production sociale"],
-    videoUrl: "/videos/vidéo-fc-castellane.mp4",
+    videoUrl: getVideoUrl("/videos/vidéo-fc-castellane.mp4", "video-fc-castellane"),
     images: [
       "/images/fc-castellane-1.jpg",
       "/images/fc-castellane-2.jpg"
@@ -147,7 +149,7 @@ export const projects: Project[] = [
     slug: "legend-boxing-marseille",
     year: 2024,
     services: ["Production vidéo", "Direction artistique", "Post-production"],
-    videoUrl: "/videos/pub-marseille-boxe-compressed.mp4",
+    videoUrl: getVideoUrl("/videos/pub-marseille-boxe-compressed.mp4", "pub-marseille-boxe-compressed"),
     images: [
       "/images/boxe-1.png",
       "/images/boxe-2.png",
@@ -165,7 +167,7 @@ export const projects: Project[] = [
     slug: "vrunk-streetwear",
     year: 2023,
     services: ["Production vidéo", "Shooting photo", "Direction artistique"],
-    videoUrl: "/videos/vidéo-vrunk.mp4",
+    videoUrl: getVideoUrl("/videos/vidéo-vrunk.mp4", "video-vrunk"),
     images: [
       "/images/vrunk/vrunk-1.png",
       "/images/vrunk/vrunk-2.png",

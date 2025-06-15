@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Project } from '@/app/data/projects';
 import { HorizontalScroll } from './HorizontalScroll';
 import { ParallaxGallery } from './ParallaxGallery';
+import { getVideoUrl } from '@/app/data/cloudinary-urls';
 
 interface ModernHomepageProps {
   featuredProjects: Project[];
@@ -106,7 +107,7 @@ export function ModernHomepage({ featuredProjects, allProjects }: ModernHomepage
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
             >
-              <source src="/videos/12568306_3840_2160_30fps.mp4" type="video/mp4" />
+              <source src={getVideoUrl("/videos/12568306_3840_2160_30fps.mp4", "12568306_3840_2160_30fps")} type="video/mp4" />
               Votre navigateur ne prend pas en charge la vidéo HTML5.
             </video>
           </div>

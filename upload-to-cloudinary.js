@@ -21,6 +21,7 @@ if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !pr
 
 // Chemins des vidéos à télécharger
 const videoFiles = [
+  // Vidéos existantes
   {
     path: path.join(__dirname, 'public/videos/uludag-video-1.mp4'),
     publicId: 'lawgency/uludag-video-1'
@@ -28,6 +29,35 @@ const videoFiles = [
   {
     path: path.join(__dirname, 'public/videos/uludag-video-2.mp4'),
     publicId: 'lawgency/uludag-video-2'
+  },
+  // Nouvelles vidéos à ajouter
+  {
+    path: path.join(__dirname, 'public/videos/Nike_Spec_Ad_Sony_A6400.mp4'),
+    publicId: 'lawgency/Nike_Spec_Ad_Sony_A6400'
+  },
+  {
+    path: path.join(__dirname, 'public/videos/Chanel-N5.mp4'),
+    publicId: 'lawgency/Chanel-N5'
+  },
+  {
+    path: path.join(__dirname, 'public/videos/Damius-01.mp4'),
+    publicId: 'lawgency/Damius-01'
+  },
+  {
+    path: path.join(__dirname, 'public/videos/pub-marseille-boxe-compressed.mp4'),
+    publicId: 'lawgency/pub-marseille-boxe-compressed'
+  },
+  {
+    path: path.join(__dirname, 'public/videos/vidéo-fc-castellane.mp4'),
+    publicId: 'lawgency/video-fc-castellane'
+  },
+  {
+    path: path.join(__dirname, 'public/videos/vidéo-vrunk.mp4'),
+    publicId: 'lawgency/video-vrunk'
+  },
+  {
+    path: path.join(__dirname, 'public/videos/12568306_3840_2160_30fps.mp4'),
+    publicId: 'lawgency/12568306_3840_2160_30fps'
   }
 ];
 
