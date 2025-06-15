@@ -52,20 +52,20 @@ export const projects: Project[] = [
     featured: true
   },
   {
-    id: "chanel-huile-or",
-    title: "Chanel L'Huile D'Or",
+    id: "chanel-n5",
+    title: "Chanel N°5 - Animation 3D",
     client: "Chanel",
-    description: "Une expérience visuelle immersive pour le lancement du nouveau produit de beauté de Chanel, mettant en valeur la texture luxueuse et les reflets dorés de L'Huile D'Or.",
-    thumbnail: "https://www.chanel.com/images//t_one///q_auto:good,f_auto,fl_lossy,dpr_1.2/w_1920/huile-de-jasmin-revitalizing-facial-oil-1fl-oz--packshot-default-141510-8848869466142.jpg",
+    description: "Animation 3D cinématique mettant en scène l'iconique flacon de parfum Chanel N°5. Cette réalisation sublime le design intemporel du produit à travers un jeu d'éclairages sophistiqués et une mise en scène épurée qui reflète l'élégance et le raffinement de la marque. La vidéo capture l'essence du luxe à la française avec des mouvements fluides et une attention particulière aux détails.",
+    thumbnail: "/images/chanel-1.png",
     category: "Vidéo",
-    slug: "chanel-huile-or",
+    slug: "chanel-n5",
     year: 2024,
-    services: ["Direction artistique", "Production vidéo", "Post-production"],
-    videoUrl: "/videos/project-video1.mp4",
+    services: ["Animation 3D", "Direction artistique", "Rendu et éclairage", "Post-production"],
+    videoUrl: "/videos/Chanel-N5.mp4",
     images: [
-      "https://www.chanel.com/images//t_one///q_auto:good,f_auto,fl_lossy,dpr_1.2/w_1920/huile-de-jasmin-revitalizing-facial-oil-1fl-oz--packshot-default-141510-8848869466142.jpg",
-      "https://www.chanel.com/images//t_one///q_auto:good,f_auto,fl_lossy,dpr_1.2/w_1920/huile-de-jasmin-revitalizing-facial-oil-1fl-oz--packshot-alternative-141510-8848869498910.jpg",
-      "https://www.chanel.com/images//t_one///q_auto:good,f_auto,fl_lossy,dpr_1.2/w_1920/huile-de-jasmin-revitalizing-facial-oil-1fl-oz--texture-141510-8848869531678.jpg"
+      "/images/chanel-1.png",
+      "/images/chanel-2.png",
+      "/images/chanel-3.png"
     ],
     featured: true
   },
@@ -74,117 +74,103 @@ export const projects: Project[] = [
     title: "Nike x Sony A6400",
     client: "Nike",
     description: "Production vidéo réalisée pour Nike en juin 2023, mettant en valeur l'appareil Sony A6400 dans un contexte sportif dynamique. Cette collaboration a permis de démontrer les capacités exceptionnelles de l'appareil pour capturer le mouvement et l'énergie propres à l'univers Nike.",
-    thumbnail: "https://i.ytimg.com/vi/dHYTo6Da2aA/maxresdefault.jpg",
+    thumbnail: "/images/photo-nike-1.png",
     category: "Vidéo",
     slug: "nike-sony-a6400",
     year: 2023,
     services: ["Production vidéo", "Direction artistique", "Post-production"],
     videoUrl: "/videos/Nike_Spec_Ad_Sony_A6400.mp4",
     images: [
-      "https://i.ytimg.com/vi/dHYTo6Da2aA/maxresdefault.jpg",
-      "https://i.ytimg.com/vi/dHYTo6Da2aA/hq720.jpg",
-      "https://i.ytimg.com/vi/dHYTo6Da2aA/hqdefault.jpg"
+      "/images/photo-nike-1.png",
+      "/images/photo-nike-2.png"
     ],
     featured: true
   },
   {
     id: "microsoft-office",
-    title: "Microsoft Office Apps",
+    title: "Microsoft Office Apps - Nouvelle Ère",
     client: "Microsoft",
-    description: "Refonte de l'interface utilisateur des applications Microsoft Office, avec une approche centrée sur l'expérience utilisateur et l'accessibilité.",
-    thumbnail: "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4OAgf?ver=bea5",
-    category: "Web",
+    description: "Collaboration avec Microsoft pour illustrer la nouvelle ère de design des applications Office sous Windows 11. Notre équipe a créé un film immersif mettant en valeur les nouvelles interfaces épurées, les coins arrondis et le thème sombre adapté au système d'exploitation. Le concept visuel explore la transformation des formes physiques et numériques dans un mouvement synchronisé élégant, soulignant la nouvelle matérialité 'Mica' et les fonctionnalités collaboratives des applications.",
+    thumbnail: "/images/microsoft/Microsoft-Office-UX-Brand-Film-Media.Work_.jpg",
+    category: "Vidéo & Design",
     slug: "microsoft-office",
     year: 2023,
-    services: ["UI/UX Design", "Développement frontend", "Tests utilisateurs"],
+    services: ["Direction artistique", "Animation 3D", "Production vidéo", "UI/UX Design"],
     images: [
-      "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4OAgf?ver=bea5",
-      "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4HCq3?ver=5d8a",
-      "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4HzAo?ver=5539"
+      "/images/microsoft/Microsoft-Office-UX-Brand-Film-Media.Work_.jpg",
+      "/images/microsoft/Microsoft-Office-UX-Brand-Film-Media.Work2_.jpg",
+      "/images/microsoft/Microsoft-Office-UX-Brand-Film-Media.Work4_.jpg",
+      "/images/microsoft/Microsoft-Office-UX-Brand-Film-Media.Work5_.jpg"
     ]
   },
   {
-    id: "ikea-play-light",
-    title: "IKEA Play Of Light",
-    client: "IKEA",
-    description: "Série de vidéos mettant en scène les luminaires IKEA dans différents environnements, jouant avec les ombres et les reflets pour créer des ambiances uniques.",
-    thumbnail: "https://www.ikea.com/global/assets/range-categorisation/images/pendant-lamps-10731.jpeg?imwidth=500",
+    id: "damius-tricycle",
+    title: "Damius - Tricycle Essentiel",
+    client: "Damius",
+    description: "Campagne vidéo mettant en valeur le tricycle Essentiel de la marque Damius, un véhicule électrique à trois roues conçu pour les seniors et personnes à mobilité réduite. Notre équipe a créé un film promotionnel soulignant les aspects pratiques, sécuritaires et l'autonomie qu'offre ce moyen de transport innovant. La réalisation met en lumière la facilité d'utilisation et l'accessibilité du produit dans un environnement quotidien.",
+    thumbnail: "/images/damius/catalogue-tricycle-evasion.jpg",
     category: "Vidéo",
-    slug: "ikea-play-light",
-    year: 2023,
-    services: ["Production vidéo", "Direction photo", "Montage"],
-    videoUrl: "/videos/project-video2.mp4",
+    slug: "damius-tricycle",
+    year: 2024,
+    services: ["Production vidéo", "Direction artistique", "Post-production"],
+    videoUrl: "/videos/Damius-01.mp4",
     images: [
-      "https://www.ikea.com/global/assets/range-categorisation/images/pendant-lamps-10731.jpeg?imwidth=500",
-      "https://www.ikea.com/global/assets/navigation/images/table-lamps-10732.jpeg?imwidth=500",
-      "https://www.ikea.com/global/assets/range-categorisation/images/floor-lamps-20492.jpeg?imwidth=500"
+      "/images/damius/Damius-velo-electrique-3-roues-accessible.jpg",
+      "/images/damius/catalogue-tricycle-evasion.jpg"
     ],
     featured: true
   },
   {
-    id: "loreal-digital",
-    title: "L'Oréal Digital Presence",
-    client: "L'Oréal",
-    description: "Stratégie de présence digitale pour L'Oréal, incluant la gestion des réseaux sociaux, la création de contenu et l'analyse des performances.",
-    thumbnail: "https://www.loreal.com/-/media/project/loreal/brand-sites/corp/master/emea/articles/2023/04/loreal-paris-age-perfect-cell-renew/loreal-paris-age-perfect-cell-renew-article-picture.jpg?rev=8b9a5c4cf2034d0f9e5c1e5f4c4a1a6f",
-    category: "Community Management",
-    slug: "loreal-digital",
-    year: 2023,
-    services: ["Stratégie digitale", "Création de contenu", "Analyse de données"],
-    images: [
-      "https://www.loreal.com/-/media/project/loreal/brand-sites/corp/master/emea/articles/2023/04/loreal-paris-age-perfect-cell-renew/loreal-paris-age-perfect-cell-renew-article-picture.jpg?rev=8b9a5c4cf2034d0f9e5c1e5f4c4a1a6f",
-      "https://www.loreal.com/-/media/project/loreal/brand-sites/corp/master/emea/articles/2023/03/loreal-paris-glycolic-bright/loreal-paris-glycolic-bright-article-picture.jpg?rev=b0d8b8f9c6e54e9b9d2c3b3e9c3a3a3e",
-      "https://www.loreal.com/-/media/project/loreal/brand-sites/corp/master/emea/articles/2023/02/loreal-paris-elvive-bond-repair/loreal-paris-elvive-bond-repair-article-picture.jpg?rev=9c3a3a3e9c3a3a3e9c3a3a3e9c3a3a3e"
-    ]
-  },
-  {
-    id: "bmw-i4",
-    title: "BMW i4",
-    client: "BMW",
-    description: "Film promotionnel pour la BMW i4, mettant en valeur le design élégant et les performances électriques de ce véhicule innovant.",
-    thumbnail: "https://www.bmw.fr/content/dam/bmw/common/all-models/i-series/i4/2021/highlights/bmw-i4-m50-onepager-sp-desktop.jpg",
+    id: "fc-castellane",
+    title: "FC La Castellane",
+    client: "OM Fondation",
+    description: "Reportage vidéo réalisé pour l'OM Fondation lors du lancement officiel du FC La Castellane, un nouveau club de football local créé en collaboration avec le centre social La Castellane. Cette production met en lumière l'importance du sport comme vecteur d'inclusion sociale et de développement pour les jeunes du quartier marseillais. Les images capturent l'enthousiasme des participants, l'engagement des éducateurs et le soutien de la communauté pour ce projet sportif et social.",
+    thumbnail: "/images/fc-castellane-1.jpg",
     category: "Vidéo",
-    slug: "bmw-i4",
-    year: 2022,
-    services: ["Production vidéo", "Drone FPV", "Post-production"],
-    videoUrl: "/videos/project-video3.mp4",
+    slug: "fc-castellane",
+    year: 2024,
+    services: ["Reportage vidéo", "Montage", "Production sociale"],
+    videoUrl: "/videos/vidéo-fc-castellane.mp4",
     images: [
-      "https://www.bmw.fr/content/dam/bmw/common/all-models/i-series/i4/2021/highlights/bmw-i4-m50-onepager-sp-desktop.jpg",
-      "https://www.bmw.fr/content/dam/bmw/common/all-models/i-series/i4/2021/onepager/bmw-i4-onepager-ms-equipment-01-desktop.jpg",
-      "https://www.bmw.fr/content/dam/bmw/common/all-models/i-series/i4/2021/onepager/bmw-i4-onepager-ms-equipment-02-desktop.jpg"
-    ]
-  },
-  {
-    id: "hermes-seasons",
-    title: "Hermès Seasons",
-    client: "Hermès",
-    description: "Série de visuels pour les collections saisonnières d'Hermès, avec une direction artistique inspirée des éléments naturels propres à chaque saison.",
-    thumbnail: "https://assets.hermes.com/is/image/hermesproduct/h-embroidered-sweater--072025HA01-worn-1-0-0-800-800_g.jpg",
-    category: "Design",
-    slug: "hermes-seasons",
-    year: 2022,
-    services: ["Direction artistique", "Photographie", "Design graphique"],
-    images: [
-      "https://assets.hermes.com/is/image/hermesproduct/h-embroidered-sweater--072025HA01-worn-1-0-0-800-800_g.jpg",
-      "https://assets.hermes.com/is/image/hermesproduct/les-jardins-d-armenie-shawl-140--243648S-worn-1-0-0-800-800_g.jpg",
-      "https://assets.hermes.com/is/image/hermesproduct/h-en-biais-bag-charm--074954CKAA-worn-1-0-0-800-800_g.jpg"
+      "/images/fc-castellane-1.jpg",
+      "/images/fc-castellane-2.jpg"
     ],
     featured: true
   },
   {
-    id: "adidas-boost",
-    title: "Adidas Boost",
-    client: "Adidas",
-    description: "Animation 3D mettant en valeur la technologie Boost d'Adidas, avec une exploration détaillée de la structure et des performances de la semelle.",
-    thumbnail: "https://assets.adidas.com/images/w_600,f_auto,q_auto/9e940d8a4d8d419a9effaf1e00a3291d_9366/Chaussure_Ultraboost_1.0_Gris_HQ4199_01_standard.jpg",
-    category: "Design",
-    slug: "adidas-boost",
-    year: 2022,
-    services: ["Animation 3D", "Design technique", "Rendu"],
+    id: "legend-boxing-marseille",
+    title: "Legend Boxing Marseille",
+    client: "Legend Boxing",
+    description: "Campagne promotionnelle réalisée pour le club de boxe Legend Boxing situé à Marseille. Cette production vidéo dynamique met en lumière l'intensité des entraînements, la passion des boxeurs et l'ambiance unique du club. Les séquences captent l'essence de ce sport exigeant tout en valorisant les installations modernes et l'encadrement professionnel offerts par Legend Boxing.",
+    thumbnail: "/images/boxe-1.png",
+    category: "Vidéo",
+    slug: "legend-boxing-marseille",
+    year: 2024,
+    services: ["Production vidéo", "Direction artistique", "Post-production"],
+    videoUrl: "/videos/pub-marseille-boxe-compressed.mp4",
     images: [
-      "https://assets.adidas.com/images/w_600,f_auto,q_auto/9e940d8a4d8d419a9effaf1e00a3291d_9366/Chaussure_Ultraboost_1.0_Gris_HQ4199_01_standard.jpg",
-      "https://assets.adidas.com/images/w_600,f_auto,q_auto/c2a18c4e3f104d52a00baf1e00a33a3a_9366/Chaussure_Ultraboost_1.0_Gris_HQ4199_02_standard_hover.jpg",
-      "https://assets.adidas.com/images/w_600,f_auto,q_auto/a6b1c25b4f5d4f0e8c6aaf1e00a34f9e_9366/Chaussure_Ultraboost_1.0_Gris_HQ4199_05_standard.jpg"
-    ]
+      "/images/boxe-1.png",
+      "/images/boxe-2.png",
+      "/images/boxe-3.png"
+    ],
+    featured: true
+  },
+  {
+    id: "vrunk-streetwear",
+    title: "Vrunk Streetwear",
+    client: "Vrunk",
+    description: "Campagne promotionnelle réalisée pour Vrunk, une marque de vêtements streetwear en pleine expansion. Notre équipe a conçu et produit un shooting photo professionnel ainsi qu'une vidéo publicitaire pour mettre en valeur leur nouvelle collection. Le style visuel urbain et contemporain reflète l'identité de la marque, ciblant un public jeune et branché. La stratégie de communication s'articule autour des réseaux sociaux, notamment TikTok, pour maximiser l'engagement et la visibilité de la marque.",
+    thumbnail: "/images/vrunk/vrunk-1.png",
+    category: "Vidéo",
+    slug: "vrunk-streetwear",
+    year: 2023,
+    services: ["Production vidéo", "Shooting photo", "Direction artistique"],
+    videoUrl: "/videos/vidéo-vrunk.mp4",
+    images: [
+      "/images/vrunk/vrunk-1.png",
+      "/images/vrunk/vrunk-2.png",
+      "/images/vrunk/vrunk-3.png"
+    ],
+    featured: true
   }
 ];

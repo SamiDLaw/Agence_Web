@@ -37,40 +37,59 @@ export function NavigationPortfolio() {
     document.body.style.overflow = 'auto';
   };
 
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    closeMenu();
+    setTimeout(() => {
+      window.location.href = path;
+    }, 200);
+  };
+
   return (
     <>
       <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="text-2xl font-bold">
+            <a href="/" className="text-2xl font-bold" onClick={(e) => handleNavigation(e, '/')}>
               Lawgency
-            </Link>
+            </a>
 
             <nav className="hidden md:flex items-center space-x-8">
-              <Link 
+              <a 
+                href="/" 
+                className={`text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${pathname === '/' ? 'text-blue-600 dark:text-blue-400' : ''}`}
+                onClick={(e) => handleNavigation(e, '/')}
+              >
+                Accueil
+              </a>
+              <a 
                 href="/projets" 
                 className={`text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${pathname === '/projets' ? 'text-blue-600 dark:text-blue-400' : ''}`}
+                onClick={(e) => handleNavigation(e, '/projets')}
               >
                 Projets
-              </Link>
-              <Link 
+              </a>
+              <a 
                 href="/services" 
                 className={`text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${pathname === '/services' ? 'text-blue-600 dark:text-blue-400' : ''}`}
+                onClick={(e) => handleNavigation(e, '/services')}
               >
                 Services
-              </Link>
-              <Link 
+              </a>
+              <a 
                 href="/a-propos" 
                 className={`text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${pathname === '/a-propos' ? 'text-blue-600 dark:text-blue-400' : ''}`}
+                onClick={(e) => handleNavigation(e, '/a-propos')}
               >
                 À propos
-              </Link>
-              <Link 
+              </a>
+              <a 
                 href="/contact" 
                 className={`text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${pathname === '/contact' ? 'text-blue-600 dark:text-blue-400' : ''}`}
+                onClick={(e) => handleNavigation(e, '/contact')}
               >
                 Contact
-              </Link>
+              </a>
             </nav>
 
             <button 
@@ -99,34 +118,41 @@ export function NavigationPortfolio() {
             transition={{ duration: 0.3 }}
           >
             <nav className="flex flex-col items-center space-y-8">
-              <Link 
+              <a 
+                href="/" 
+                className="text-3xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                onClick={(e) => handleNavigation(e, '/')}
+              >
+                Accueil
+              </a>
+              <a 
                 href="/projets" 
                 className="text-3xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                onClick={closeMenu}
+                onClick={(e) => handleNavigation(e, '/projets')}
               >
                 Projets
-              </Link>
-              <Link 
+              </a>
+              <a 
                 href="/services" 
                 className="text-3xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                onClick={closeMenu}
+                onClick={(e) => handleNavigation(e, '/services')}
               >
                 Services
-              </Link>
-              <Link 
+              </a>
+              <a 
                 href="/a-propos" 
                 className="text-3xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                onClick={closeMenu}
+                onClick={(e) => handleNavigation(e, '/a-propos')}
               >
                 À propos
-              </Link>
-              <Link 
+              </a>
+              <a 
                 href="/contact" 
                 className="text-3xl font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                onClick={closeMenu}
+                onClick={(e) => handleNavigation(e, '/contact')}
               >
                 Contact
-              </Link>
+              </a>
             </nav>
           </motion.div>
         )}

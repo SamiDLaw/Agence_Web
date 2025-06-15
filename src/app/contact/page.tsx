@@ -50,7 +50,7 @@ export default function Contact() {
               },
               {
                 title: "Contact",
-                info: "info@lawgency.fr\n+33 1 23 45 67 89"
+                info: "info@lawgency.fr\n+33 6 68 23 61 57"
               },
               {
                 title: "Horaires",
@@ -97,9 +97,7 @@ export default function Contact() {
           <div className="flex justify-center space-x-6">
             {[
               { name: "Instagram", url: "https://instagram.com" },
-              { name: "Twitter", url: "https://twitter.com" },
-              { name: "LinkedIn", url: "https://linkedin.com" },
-              { name: "Behance", url: "https://behance.net" }
+              { name: "LinkedIn", url: "https://linkedin.com" }
             ].map((social, index) => (
               <motion.a
                 key={social.name}

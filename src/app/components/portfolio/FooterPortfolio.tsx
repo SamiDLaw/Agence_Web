@@ -90,9 +90,7 @@ export function FooterPortfolio() {
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
               LinkedIn
             </a>
-            <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-              Behance
-            </a>
+
           </div>
         </div>
       </div>

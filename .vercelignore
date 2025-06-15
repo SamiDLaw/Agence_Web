@@ -7,3 +7,14 @@ npm-debug.log
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Autres fichiers inutiles
+.vscode
+.idea
+README.md
+LICENSE
