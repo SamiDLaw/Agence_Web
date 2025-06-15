@@ -170,23 +170,49 @@ export function ModernAboutSection({
             {teamMembers.map((member, index) => (
               <ScrollReveal key={member.id} delay={index * 0.1}>
                 <motion.div 
-                  className="cursor-pointer"
+                  className="cursor-pointer flex flex-col items-center"
                   onClick={() => setSelectedMember(member)}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                   data-cursor="hover"
                 >
-                  <div className="relative aspect-[3/4] mb-4 overflow-hidden rounded-lg">
-                    <HoverImage
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full"
-                      hoverEffect="zoom"
-                      objectPosition={member.id === "sami" ? "center top" : member.id === "eren" ? "center 30%" : "center 20%"}
-                    />
+                  <div className="relative aspect-[1/1] mb-4 overflow-hidden rounded-lg w-full max-w-[250px] mx-auto">
+                    {(() => {
+                      // Définir les propriétés spécifiques pour chaque membre
+                      let scale = "";
+                      let position = "center center";
+                      
+                      switch(member.id) {
+                        case "sami":
+                          scale = "scale-110";
+                          position = "65% 40%";
+                          break;
+                        case "eren":
+                          scale = "scale-105";
+                          position = "40% 35%";
+                          break;
+                        case "coralie":
+                          scale = "scale-110";
+                          position = "80% 40%";
+                          break;
+                        default:
+                          scale = "";
+                          position = "center center";
+                      }
+                      
+                      return (
+                        <HoverImage
+                          src={member.image}
+                          alt={member.name}
+                          className={`w-full h-full ${scale}`}
+                          hoverEffect="zoom"
+                          objectPosition={position}
+                        />
+                      );
+                    })()}
                   </div>
-                  <h4 className="text-xl font-bold">{member.name}</h4>
-                  <p className="text-blue-600 dark:text-blue-400">{member.role}</p>
+                  <h4 className="text-xl font-bold text-center">{member.name}</h4>
+                  <p className="text-blue-600 dark:text-blue-400 text-center">{member.role}</p>
                 </motion.div>
               </ScrollReveal>
             ))}
