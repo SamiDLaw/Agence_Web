@@ -9,7 +9,7 @@ export function FooterPortfolio() {
   return (
     <footer className="py-20 bg-white dark:bg-black border-t border-gray-100 dark:border-gray-800">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
           <div>
             <h3 className="text-lg font-medium mb-4">Adresse</h3>
             <p className="text-gray-600 dark:text-gray-300">
@@ -77,13 +77,13 @@ export function FooterPortfolio() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <p className="text-sm text-center md:text-left text-gray-600 dark:text-gray-300">
               © {currentYear} Lawgency. Tous droits réservés.
             </p>
           </div>
-          <div className="flex space-x-6">
+          <div className="flex space-x-4 sm:space-x-6">
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
               Instagram
             </a>

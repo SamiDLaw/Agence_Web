@@ -135,11 +135,11 @@ export function ModernProjectDetail({ project }: ProjectDetailProps) {
             
             <AnimatedText 
               text={project.title} 
-              className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+              className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight"
               once={true}
             />
             
-            <div className="flex flex-wrap gap-4 mb-8">
+            <div className="flex flex-wrap gap-2 sm:gap-4 mb-6 sm:mb-8">
               <div className="bg-white/10 backdrop-blur-sm px-5 py-2 rounded-full">
                 <span className="text-sm font-medium">{project.category}</span>
               </div>
@@ -151,7 +151,7 @@ export function ModernProjectDetail({ project }: ProjectDetailProps) {
               </div>
             </div>
             
-            <p className="text-xl text-white/90 max-w-2xl leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed">
               {project.description}
             </p>
             
@@ -184,7 +184,7 @@ export function ModernProjectDetail({ project }: ProjectDetailProps) {
       {/* Contenu principal */}
       <section className="py-24">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16">
             {/* Sidebar */}
             <ScrollReveal direction="right" className="lg:col-span-4">
               <div className="sticky top-32">
@@ -277,7 +277,7 @@ export function ModernProjectDetail({ project }: ProjectDetailProps) {
               {/* Galerie horizontale */}
               {project.gallery.length > 0 && (
                 <ScrollReveal>
-                  <h2 className="text-3xl font-bold mb-12 relative">
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 relative">
                     <span className="relative z-10">Galerie du projet</span>
                     <span className="absolute bottom-0 left-0 w-12 h-1 bg-primary"></span>
                   </h2>

@@ -139,24 +139,24 @@ export function ModernHomepage({ featuredProjects, allProjects }: ModernHomepage
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6">
               Transformons vos <span className="text-primary">idées</span> en expériences <span className="text-primary">mémorables</span>
             </h1>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl">
+            <p className="text-lg sm:text-xl text-white/80 mb-6 md:mb-8 max-w-2xl">
               Agence créative spécialisée en production vidéo, design web et community management pour donner vie à vos projets.
             </p>
             
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link 
                 href="/projets" 
-                className="bg-white text-black px-8 py-4 rounded-full font-medium hover:bg-opacity-90 transition-all"
+                className="bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-opacity-90 transition-all w-full sm:w-auto text-center"
                 data-cursor="hover"
               >
                 Voir nos projets
               </Link>
               <Link 
                 href="/contact" 
-                className="bg-transparent border border-white text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all"
+                className="bg-transparent border border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-white/10 transition-all w-full sm:w-auto text-center"
                 data-cursor="hover"
               >
                 Nous contacter
@@ -209,7 +209,7 @@ export function ModernHomepage({ featuredProjects, allProjects }: ModernHomepage
             </motion.p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -245,7 +245,7 @@ export function ModernHomepage({ featuredProjects, allProjects }: ModernHomepage
       {/* Section Projets en vedette avec défilement horizontal */}
       <section className="py-24 bg-primary-dark">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-          <div className="flex justify-between items-end">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
             <div>
               <motion.h2 
                 className="text-4xl md:text-5xl font-bold mb-4 text-white"
@@ -287,11 +287,11 @@ export function ModernHomepage({ featuredProjects, allProjects }: ModernHomepage
         </div>
         
         <HorizontalScroll speed={0.5} className="py-10">
-          <div className="flex gap-8 pl-8">
+          <div className="flex gap-4 md:gap-8 pl-4 md:pl-8">
             {featuredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="w-[350px] flex-shrink-0"
+                className="w-[280px] sm:w-[320px] md:w-[350px] flex-shrink-0"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

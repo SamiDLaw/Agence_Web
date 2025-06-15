@@ -240,7 +240,7 @@ export function ModernNavigation() {
                     <a 
                       href={link.href}
                       onClick={handleNavigation(link.href)}
-                      className={`text-3xl font-bold transition-colors ${
+                      className={`text-2xl sm:text-3xl font-bold transition-colors ${
                         pathname === link.href 
                           ? 'text-primary' 
                           : 'text-black dark:text-white hover:text-primary dark:hover:text-primary'
