@@ -115,6 +115,17 @@ export function ModernNavigation() {
     hover: { scale: 1.05, transition: { duration: 0.3 } }
   };
   
+  // Fonction pour gérer la navigation avec Next.js
+  const handleNavigation = (href: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Fermer le menu avant la navigation
+    setIsOpen(false);
+    // Petit délai pour laisser l'animation se terminer
+    setTimeout(() => {
+      window.location.href = href;
+    }, 300);
+  };
+
   return (
     <>
       {/* Navigation principale */}
@@ -135,23 +146,19 @@ export function ModernNavigation() {
                 whileHover="hover"
                 data-cursor="hover"
               >
-                <Image 
-                  src={isDarkMode ? "/images/logo-white.svg" : "/images/logo-black.svg"} 
-                  alt="Lawgency" 
-                  width={180} 
-                  height={60} 
-                  className="h-10 w-auto"
-                  priority
-                />
+                <span className="text-2xl font-bold">
+                  Lawgency
+                </span>
               </motion.div>
             </Link>
             
             {/* Navigation desktop */}
             <nav className="hidden md:flex items-center space-x-8">
               {links.map((link) => (
-                <Link 
+                <a 
                   key={link.href} 
                   href={link.href}
+                  onClick={handleNavigation(link.href)}
                   className={`text-sm font-medium transition-colors relative ${
                     pathname === link.href 
                       ? 'text-primary' 
@@ -167,19 +174,20 @@ export function ModernNavigation() {
                       transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                     />
                   )}
-                </Link>
+                </a>
               ))}
             </nav>
             
             {/* Bouton contact */}
             <div className="hidden md:block">
-              <Link 
+              <a 
                 href="/contact"
+                onClick={handleNavigation('/contact')}
                 className="bg-primary text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors"
                 data-cursor="hover"
               >
                 Démarrer un projet
-              </Link>
+              </a>
             </div>
             
             {/* Bouton menu mobile */}
@@ -229,8 +237,9 @@ export function ModernNavigation() {
               <nav className="flex flex-col items-center space-y-6">
                 {links.map((link) => (
                   <motion.div key={link.href} variants={linkVariants}>
-                    <Link 
+                    <a 
                       href={link.href}
+                      onClick={handleNavigation(link.href)}
                       className={`text-3xl font-bold transition-colors ${
                         pathname === link.href 
                           ? 'text-primary' 
@@ -239,7 +248,7 @@ export function ModernNavigation() {
                       data-cursor="hover"
                     >
                       {link.label}
-                    </Link>
+                    </a>
                   </motion.div>
                 ))}
               </nav>
@@ -248,13 +257,14 @@ export function ModernNavigation() {
                 className="mt-12"
                 variants={linkVariants}
               >
-                <Link 
+                <a 
                   href="/contact"
+                  onClick={handleNavigation('/contact')}
                   className="bg-primary text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-primary/90 transition-colors"
                   data-cursor="hover"
                 >
                   Démarrer un projet
-                </Link>
+                </a>
               </motion.div>
             </div>
             
@@ -283,18 +293,7 @@ export function ModernNavigation() {
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                       </svg>
                     </a>
-                    <a 
-                      href="https://twitter.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-                      aria-label="Twitter"
-                      data-cursor="hover"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                      </svg>
-                    </a>
+
                     <a 
                       href="https://linkedin.com" 
                       target="_blank" 

@@ -252,9 +252,10 @@ export function ModernProjectDetail({ project }: ProjectDetailProps) {
                       poster={project.coverImage}
                       className="w-full h-full"
                       autoPlay={false}
-                      loop={false}
-                      muted={false}
+                      loop={true}
+                      muted={true}
                       controls={true}
+                      playOnScroll={true}
                     />
                   </div>
                 </ScrollReveal>
