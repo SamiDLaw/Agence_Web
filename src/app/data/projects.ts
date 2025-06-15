@@ -15,6 +15,24 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "comores-fashion",
+    title: "Collection Traditionnelle Comorienne",
+    client: "Comores Fashion",
+    description: "Direction artistique et production photo pour la première collection de vêtements traditionnels comoriens revisités. Ce shooting met en valeur l'élégance et l'authenticité des tissus et motifs comoriens dans une approche contemporaine et raffinée.",
+    thumbnail: "/images/PKLS7608.png",
+    category: "Photo",
+    slug: "comores-fashion",
+    year: 2025,
+    services: ["Direction artistique", "Photographie de mode", "Stylisme", "Post-production"],
+    images: [
+      "/images/PKLS7608.png",
+      "/images/PKLS7621.png",
+      "/images/PKLS7715.png",
+      "/images/PKLS7725.png"
+    ],
+    featured: true
+  },
+  {
     id: "uludag-restaurant",
     title: "Restaurant Turc News Uludag",
     client: "Uludag",
