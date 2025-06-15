@@ -33,6 +33,8 @@ const nextConfig = {
   experimental: {
     // Packages externes pour les composants serveur
     serverComponentsExternalPackages: ['framer-motion'],
+    // Ignorer les routes problématiques
+    excludePages: ['**/api/admin/invoices/**'],
   },
   // Augmenter la taille limite des pages
   compiler: {

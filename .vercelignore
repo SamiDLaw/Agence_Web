@@ -18,3 +18,7 @@ npm-debug.log
 .idea
 README.md
 LICENSE
+
+# Routes problématiques
+src/app/api/admin/invoices
+pages/api/admin/invoices
